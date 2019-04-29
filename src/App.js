@@ -1,8 +1,12 @@
 import React from 'react';
-import {Favorites} from "./features/favorites/pages/Favorites";
+import {Favorites} from "./features/favorites";
+import {SongBar} from "./features/common/organisms";
 
 const App = () => (
-    <Favorites/>
+    <>
+        <Favorites/>
+        <SongBar/>
+    </>
 );
 
 export default App;
