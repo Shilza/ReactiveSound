@@ -1,0 +1,28 @@
+
+.button {
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  transition: 300ms;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:active {
+    background-color: #16191b;
+  }
+
+  svg {
+    transition: 300ms;
+  }
+
+  &:hover svg {
+    stroke: #aaabac;
+    fill: #aaabac;
+  }
+}

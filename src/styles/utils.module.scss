@@ -1,0 +1,6 @@
+
+@import 'colors.module';
+
+@function color($key: 'primary') {
+  @return map-get($colors, $key);
+}

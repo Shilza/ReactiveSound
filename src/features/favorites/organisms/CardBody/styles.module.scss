@@ -1,0 +1,25 @@
+
+.cover {
+  width: 100%;
+}
+
+.imageContainer {
+  height: 220px;
+  position: relative;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  height: 120px;
+  background-color: #1d1e1f;
+  padding: 15px;
+}
+
+.username {
+  color: #626364;
+}
+
+.title {
+  color: #98999a;
+}

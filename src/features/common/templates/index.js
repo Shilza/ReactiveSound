@@ -1,0 +1,2 @@
+
+export { CommonContent } from './CommonContent';

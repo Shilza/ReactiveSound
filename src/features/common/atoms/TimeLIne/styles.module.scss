@@ -1,0 +1,17 @@
+
+.timeLine {
+  position: relative;
+  height: 4px;
+  width: 100%;
+  background-color: #414a3e;
+}
+
+.currentTime {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background-color: #506f43;
+  transition: 170ms;
+  transition-timing-function: ease-out;
+}

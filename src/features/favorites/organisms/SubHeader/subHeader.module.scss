@@ -1,0 +1,27 @@
+
+.subHeader {
+  background-color: #1d1e1f;
+  max-height: 180px;
+  padding: 30px 20px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section {
+  color: #7d7e7f;
+}
+
+.title {
+  color: #d6d6d6;
+  font-size: 2.25rem;
+  font-weight: 300;
+  line-height: 1.1666666667;
+  overflow: hidden;
+  margin-top: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

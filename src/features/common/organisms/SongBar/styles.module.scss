@@ -1,0 +1,25 @@
+
+.songBar {
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  top: 0;
+  transform: translate(0, calc(100vh - 60px));
+  background-color: #2d2e2f;
+  color: #aaabac;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 970px;
+  width: 100%;
+  padding: 5px 10px 0 10px;
+}
+
+.subContainer {
+  display: flex;
+  align-items: center;
+}
