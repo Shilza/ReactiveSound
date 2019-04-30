@@ -1,0 +1,36 @@
+$transition-duration: 140ms;
+$searchBarHeight: 90px;
+$invisibleHeight: 0;
+$maxBarWidth: 960px;
+
+.searchBarAppear {
+  height: $searchBarHeight;
+  transition: $transition-duration;
+  transition-timing-function: ease-out;
+}
+
+.searchBarLeave {
+  height: $invisibleHeight;
+  transition: $transition-duration;
+  transition-timing-function: ease-out;
+  overflow: hidden;
+}
+
+.barContainer {
+  max-width: $maxBarWidth;
+  margin: 0 auto;
+  border-top: 1px solid hsla(0,0%,100%,.05);
+}
+
+.searchInput {
+  outline: none;
+  border: 0;
+  padding: 0;
+  width: 100%;
+  height: 65px;
+  color: #f0f0f0;
+  font-family: inherit;
+  font-size: 1.875rem;
+  font-weight: 300;
+  background: transparent;
+}
