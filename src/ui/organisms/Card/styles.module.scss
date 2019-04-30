@@ -1,6 +1,31 @@
 
 .card {
   width: 220px;
-  margin: 20px 10px;
-  border-bottom: 1px solid hsla(0,0%,100%,.1);
+  padding: 20px 10px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1020px){
+  .card {
+    width: 260px;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .card {
+    width: 220px;
+  }
+}
+
+@media screen and (max-width: 780px){
+  .card {
+    width: 260px;
+  }
+}
+
+@media screen and (max-width: 610px){
+  .card {
+    width: 90%;
+    max-width: 340px;
+  }
 }

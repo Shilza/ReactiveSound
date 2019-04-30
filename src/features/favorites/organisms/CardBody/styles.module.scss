@@ -4,7 +4,6 @@
 }
 
 .imageContainer {
-  height: 220px;
   position: relative;
 }
 
@@ -14,6 +13,7 @@
   height: 120px;
   background-color: #1d1e1f;
   padding: 15px;
+  border-bottom: 1px solid hsla(0,0%,100%,.1);
 }
 
 .username {
