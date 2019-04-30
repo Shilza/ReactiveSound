@@ -3,22 +3,26 @@ import {Icon} from "../../../../ui/atoms/";
 import styles from './styles.module.scss';
 import {Button} from "../../../../ui/atoms";
 
-export const Navigation = () => (
+export const Navigation = ({onSearch}) => (
     <nav>
         <ul className={styles.iconsList}>
             <li>
-                <Button>
+                <Button onClick={onSearch}>
                     <Icon name='search' width='1.4em' height='1.4em' viewBox='0 0 500 500'/>
                 </Button>
             </li>
             <li>
                 <Button>
-                    <Icon name='soundcloud'  width='1.4em' height='1.4em' viewBox='0 0 100 100'/>
+                    <a href='http://soundcloud.com/' rel='noopener noreferrer' target='_blank'>
+                        <Icon name='soundcloud' width='1.4em' height='1.4em' viewBox='0 0 100 100'/>
+                    </a>
                 </Button>
             </li>
             <li>
                 <Button>
-                    <Icon name='github' width='1.4em' height='1.4em' viewBox='0 0 500 500'/>
+                    <a href='https://github.com/Shilza/ReactiveSound' rel='noopener noreferrer' target='_blank'>
+                        <Icon name='github' width='1.4em' height='1.4em' viewBox='0 0 500 500'/>
+                    </a>
                 </Button>
             </li>
         </ul>
