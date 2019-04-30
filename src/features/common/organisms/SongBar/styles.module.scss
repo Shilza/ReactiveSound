@@ -3,10 +3,16 @@
   position: fixed;
   height: 60px;
   width: 100%;
-  top: 0;
-  transform: translate(0, calc(100vh - 60px));
+  left: 0;
+  bottom: 0;
   background-color: #2d2e2f;
   color: #aaabac;
+}
+
+.mainContainer {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .container {
@@ -22,4 +28,9 @@
 .subContainer {
   display: flex;
   align-items: center;
+}
+
+.title {
+  padding: 0 10px;
+  text-overflow: ellipsis;
 }
