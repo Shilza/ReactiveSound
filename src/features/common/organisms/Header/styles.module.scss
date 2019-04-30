@@ -1,6 +1,13 @@
 
+.container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #262728;
+  z-index: 100;
+}
+
 .header {
-  position: sticky;
   display: flex;
   align-items: center;
   justify-content: space-between;
