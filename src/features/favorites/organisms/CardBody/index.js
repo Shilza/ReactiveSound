@@ -14,7 +14,7 @@ export const CardBody = ({currentTrackId, src, id, link, username, title, cover,
         </div>
         <div className={styles.info}>
             <div className={styles.username}>
-                <a>{username}</a>
+                <a href={'/'}>{username}</a>
             </div>
             <span className={styles.title}>{title}</span>
             <CardActions id={id} duration={duration} link={link} title={title}/>

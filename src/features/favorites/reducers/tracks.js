@@ -3,7 +3,7 @@ import {
     REQUESTED_FAVORITE_TRACKS_FAILED,
     REQUESTED_FAVORITE_TRACKS_SUCCEED
 } from "../actionTypes";
-import {convertMsToString} from "../../common/urils";
+import {convertMsToString} from "../../common/utils";
 
 const initialState = {
     tracks: [],

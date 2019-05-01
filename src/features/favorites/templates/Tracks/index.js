@@ -3,8 +3,9 @@ import styles from './styles.module.scss';
 import {Card} from "../../../../ui/organisms";
 import {CardBody} from "../../organisms";
 import {connect} from "react-redux";
+import {withLoader} from "../../../common/organisms";
 
-export const Tracks = ({tracks, currentTrackId}) => (
+export const Tracks = withLoader(({tracks, currentTrackId}) => (
     <div className={styles.container}>
         {
             tracks && tracks.map(item => <Card key={item.id}>
@@ -14,10 +15,9 @@ export const Tracks = ({tracks, currentTrackId}) => (
             )
         }
     </div>
-);
+));
 
 export default connect(state => ({
-    tracks: state.favorite.tracks.tracks,
     currentTrackId: state.favorite.player.currentTrack && state.favorite.player.currentTrack.id
 }))(Tracks);
 
