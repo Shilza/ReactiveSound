@@ -11,13 +11,17 @@ export const Header = () => {
         setIsSearchBarVisible(!isSearchBarVisible);
     };
 
+    const hideBar = () => {
+        setIsSearchBarVisible(false);
+    };
+
     return (
         <header className={styles.container}>
             <div className={styles.header}>
                 <Name/>
                 <Navigation onSearch={onSearch}/>
             </div>
-            <SearchBar visible={isSearchBarVisible}/>
+            <SearchBar hideBar={hideBar} visible={isSearchBarVisible}/>
         </header>
     );
 };

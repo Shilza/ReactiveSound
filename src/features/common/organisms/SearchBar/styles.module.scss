@@ -3,16 +3,22 @@ $searchBarHeight: 90px;
 $invisibleHeight: 0;
 $maxBarWidth: 960px;
 
+%searchBar {
+  transition-timing-function: ease-out;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
 .searchBarAppear {
+  @extend %searchBar;
   height: $searchBarHeight;
   transition: $transition-duration;
-  transition-timing-function: ease-out;
 }
 
 .searchBarLeave {
+  @extend %searchBar;
   height: $invisibleHeight;
   transition: $transition-duration;
-  transition-timing-function: ease-out;
   overflow: hidden;
 }
 
