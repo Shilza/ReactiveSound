@@ -1,8 +1,9 @@
 import React from "react";
 import styles from './styles.module.scss';
+import {Link} from "react-router-dom";
 
 export const Name = () => (
     <h1 className={styles.title}>
-        <a className={styles.link} href='/'>ReactiveSound</a>
+        <Link className={styles.link} to='/'>ReactiveSound</Link>
     </h1>
 );

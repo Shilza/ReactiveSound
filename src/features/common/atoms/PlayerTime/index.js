@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './styles.module.scss';
 import {connect} from "react-redux";
-import {convertMsToString} from "../../urils";
+import {convertMsToString} from "../../utils";
 
 const PlayerTime = ({currentTime, duration}) => (
     <div className={styles.container}>

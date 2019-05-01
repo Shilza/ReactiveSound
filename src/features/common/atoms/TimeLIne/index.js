@@ -1,7 +1,7 @@
 import React, {useMemo, useRef} from "react";
 import styles from './styles.module.scss';
 import {connect} from "react-redux";
-import {convertStringToMs} from "../../urils";
+import {convertStringToMs} from "../../utils";
 import {seekTo} from "../../../favorites/actionCreators";
 
 const TimeLine = ({currentTime, duration, dispatch}) => {

@@ -25,7 +25,6 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-// waveform_url https://wis.sndcdn.com/2Z2RqPqtmtmD_m.json
 // let canvas = document.getElementById('canvas');
 // canvas.height = data.height / 2; // 70px;
 // canvas.width = data.width / 2;   // 900px
@@ -44,3 +43,7 @@ serviceWorker.unregister();
 //     context.fillRect(x, 0, 1, 35 - v);
 //     context.fillRect(x, 35 + v, 1, 70);
 // }
+
+// text-overflow: ellipsis;
+// white-space: nowrap;
+// word-wrap: normal;
