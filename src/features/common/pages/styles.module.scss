@@ -1,0 +1,31 @@
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #efefef;
+  width: 300px;
+}
+
+.title {
+
+}
+
+.text {
+
+}
+
+.link {
+  padding: 5px 10px;
+  border: 1px solid #efefef;
+  margin: 25px 0 0 auto;
+  transition: 160ms;
+
+  &:hover {
+    border-color: #ffffff;
+  }
+}
