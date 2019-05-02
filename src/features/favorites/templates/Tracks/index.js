@@ -9,8 +9,8 @@ export const Tracks = withLoader(({tracks, currentTrackId}) => (
     <div className={styles.container}>
         {
             tracks && tracks.map(item => <Card key={item.id}>
-                    <CardBody currentTrackId={currentTrackId} cover={item.artwork_url} username={item.user.permalink}
-                              link={item.user.permalink_url} title={item.title} id={item.id} duration={item.duration}/>
+                    <CardBody currentTrackId={currentTrackId} cover={item.artwork_url} username={item.user.username}
+                              link={item.user.permalink_url} userId={item.user.id} title={item.title} id={item.id} duration={item.duration}/>
                 </Card>
             )
         }

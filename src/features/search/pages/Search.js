@@ -4,6 +4,8 @@ import {SubHeader} from "../../favorites/organisms";
 import {connect} from "react-redux";
 import {fetchSearchTracks} from "../actionCreators";
 import {Tracks} from "../../favorites/templates/Tracks";
+import MediaQuery from "react-responsive";
+import {WaveformTracks} from "../templates";
 
 const Search = ({match: {params}, dispatch, loading, tracks}) => {
 
@@ -13,8 +15,16 @@ const Search = ({match: {params}, dispatch, loading, tracks}) => {
 
     return (
         <CommonContent>
-            <SubHeader location={params.query}/>
-            <Tracks tracks={tracks} loading={loading}/>
+            <SubHeader section='Search Results' location={params.query}/>
+            <MediaQuery minWidth={960}>
+                {(matches) => {
+                    if (matches) {
+                        return <WaveformTracks dispatch={dispatch} tracks={tracks} loading={loading}/>
+                    } else {
+                        return <Tracks tracks={tracks} loading={loading}/>;
+                    }
+                }}
+            </MediaQuery>
         </CommonContent>
     );
 };

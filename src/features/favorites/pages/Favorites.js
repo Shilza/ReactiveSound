@@ -7,12 +7,13 @@ import {fetchFavoriteTracks} from "../actionCreators";
 
 const Favorites = ({dispatch, tracks, loading, error}) => {
     useEffect(() => {
-        dispatch(fetchFavoriteTracks());
-    }, [dispatch]);
+        if (tracks.length === 0)
+            dispatch(fetchFavoriteTracks());
+    }, [dispatch, loading,tracks]);
 
     return (
         <CommonContent>
-            <SubHeader location='Featured Tracks'/>
+            <SubHeader section='Spotlight' location='Featured Tracks'/>
             {
                 error && <span>Error! Something went wrong</span>
             }
@@ -24,5 +25,5 @@ const Favorites = ({dispatch, tracks, loading, error}) => {
 export default connect(state => ({
     error: state.favorite.tracks.error,
     loading: state.favorite.tracks.loading,
-    tracks: state.favorite.tracks.tracks,
+    tracks: state.favorite.tracks.tracks
 }))(Favorites);

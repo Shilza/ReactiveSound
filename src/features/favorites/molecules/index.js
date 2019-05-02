@@ -1,3 +1,2 @@
-import CardActions from './CardActions';
 
-export { CardActions };
+export { CardActions } from './CardActions';
