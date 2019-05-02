@@ -4,9 +4,20 @@
   height: 60px;
   width: 100%;
   left: 0;
-  bottom: 0;
+  top: 0;
+  transform: translateY(calc(100vh - 60px));
   background-color: #2d2e2f;
   color: #aaabac;
+  animation: appear 200ms ease-out;
+}
+
+@keyframes appear {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(calc(100vh - 60px));
+  }
 }
 
 .mainContainer {
@@ -33,4 +44,8 @@
 .title {
   padding: 0 10px;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  max-width: 40%;
+  overflow: hidden;
 }

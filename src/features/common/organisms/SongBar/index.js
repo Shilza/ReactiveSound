@@ -3,21 +3,26 @@ import React from "react";
 import {PlayerControls, PlayerVolume} from "../../molecules";
 import {PlayerTime, TimeLine} from "../../atoms";
 import {connect} from "react-redux";
+import MediaQuery from "react-responsive";
 
-const SongBar = ({player, title}) => (
+const SongBar = ({player, title, currentTrackId}) => (
     <>
         {
             player &&
             <div className={styles.songBar}>
-                <TimeLine/>
+                <TimeLine id={currentTrackId}/>
                 <div className={styles.mainContainer}>
                     <div className={styles.container}>
                         <div className={styles.subContainer}>
                             <PlayerControls/>
-                            <PlayerTime/>
-                            <span className={styles.title}>{title}</span>
+                            <MediaQuery minWidth={768}>
+                                <PlayerTime/>
+                            </MediaQuery>
+                            <span title={title} className={styles.title}>{title}</span>
                         </div>
-                        <PlayerVolume player={player}/>
+                        <MediaQuery minWidth={768}>
+                            <PlayerVolume player={player}/>
+                        </MediaQuery>
                     </div>
                 </div>
             </div>
@@ -28,4 +33,5 @@ const SongBar = ({player, title}) => (
 export default connect(state => ({
     player: state.favorite.player.player,
     title: state.favorite.player.currentTrack && state.favorite.player.currentTrack.title,
+    currentTrackId: state.favorite.player.currentTrack && state.favorite.player.currentTrack.id
 }))(SongBar);
