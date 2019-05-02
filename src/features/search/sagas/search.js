@@ -1,24 +1,27 @@
 import {FETCHED_SEARCH_TRACKS} from "../actionTypes";
-import {call, put, takeLatest} from "redux-saga/effects";
+import {call, put, select, takeLatest} from "redux-saga/effects";
 import SC from "soundcloud";
-import {requestFavoriteTracks} from "../../favorites/actionCreators";
-import {requestSearchTracksError, requestSearchTracksSuccess} from "../actionCreators";
+import {requestSearchTracks, requestSearchTracksError, requestSearchTracksSuccess} from "../actionCreators";
+import {getLastQuery} from "../selectors";
 
 export function* watchFetchSearchTracks() {
     yield takeLatest(FETCHED_SEARCH_TRACKS, fetchSearchTracksAsync);
 }
 
-function* fetchSearchTracksAsync({payload}) {
+function* fetchSearchTracksAsync({payload: query}) {
     try {
-        yield put(requestFavoriteTracks());
-        const data = yield call(() => {
-                return SC.get('/tracks', {
-                    q: payload,
-                    limit:60
-                }).then(tracks => tracks);
-            }
-        );
-        yield put(requestSearchTracksSuccess(data));
+        const lastQuery = yield select(getLastQuery);
+        if (lastQuery !== query) {
+            yield put(requestSearchTracks());
+            const data = yield call(() => {
+                    return SC.get('/tracks', {
+                        q: query,
+                        limit: 60
+                    }).then(tracks => tracks);
+                }
+            );
+            yield put(requestSearchTracksSuccess({data, query}));
+        }
     } catch (error) {
         yield put(requestSearchTracksError());
     }
