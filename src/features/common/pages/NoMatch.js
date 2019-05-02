@@ -6,8 +6,8 @@ import styles from './styles.module.scss';
 export const NoMatch = () => (
     <CommonContent>
         <div className={styles.container}>
-            <h1 className={styles.title}>404 Page not found</h1>
-            <span className={styles.text}>
+            <h1>404 Page not found</h1>
+            <span>
             Don't panic, and make sure
         <br/>
             to watch your oxygen levels

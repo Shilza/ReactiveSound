@@ -7,25 +7,22 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: #efefef;
+  color: #d6d6d6;
   width: 300px;
 }
 
-.title {
-
-}
-
-.text {
-
-}
-
 .link {
-  padding: 5px 10px;
-  border: 1px solid #efefef;
-  margin: 25px 0 0 auto;
-  transition: 160ms;
+  padding: 5px 10px 8px 10px;
+  border: 1px solid #1d1e1f;
+  margin: 25px 0;
+  animation: border 1.5s ease-in 0s infinite alternate;
+}
 
-  &:hover {
+@keyframes border {
+  from {
+    border-color: #1d1e1f;;
+  }
+  to {
     border-color: #ffffff;
   }
 }
