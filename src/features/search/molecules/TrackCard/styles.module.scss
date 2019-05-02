@@ -1,0 +1,33 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border-left: 4px solid rgba(0,0,0,.1);
+  padding: 14px 20px 0 16px;
+  width: 700px;
+}
+
+.actions {
+  display: flex;
+  color: #5d5e5f;
+  fill: #4d4e4f;
+}
+
+%text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  max-width: 85%;
+  overflow: hidden;
+}
+
+.username {
+  @extend %text;
+  color: #7d7e7f;
+  font-size: .8125rem;
+}
+
+.title {
+  @extend %text;
+  color: #bdbebf;
+}
