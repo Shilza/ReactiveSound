@@ -20,7 +20,7 @@ export const withLoader = WrappedComponent => {
         WrappedComponent
     )})`;
 
-    return LoadingScreen
+    return LoadingScreen;
 };
 
 function getDisplayName(WrappedComponent) {
