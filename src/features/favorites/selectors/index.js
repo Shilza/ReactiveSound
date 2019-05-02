@@ -37,3 +37,7 @@ export const getPreviousTrack = store => {
         title: previousTrack.title
     };
 };
+
+export const getTracks = store => [...store.favorite.tracks.tracks, ...store.search.search.tracks];
+
+export const getTrackById = (tracks, id) => tracks.find(item => item.id === id);

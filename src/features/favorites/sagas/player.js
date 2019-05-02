@@ -2,7 +2,13 @@ import {call, put, select, takeEvery} from "redux-saga/effects";
 import {setPlayer} from "../actionCreators";
 import SC from "soundcloud";
 import {FETCHED_NEXT, FETCHED_PREVIOUS, FETCHED_TRACK} from "../actionTypes";
-import {getCurrentTrackId, getNextTrack, getPreviousTrack} from "../selectors";
+import {
+    getCurrentTrackId,
+    getNextTrack,
+    getPreviousTrack,
+    getTrackById,
+    getTracks
+} from "../selectors";
 
 export function* watchFetchTrack() {
     yield takeEvery(FETCHED_TRACK, fetchTrack);
@@ -44,16 +50,18 @@ function* fetchPrevious() {
     yield put(setPlayer(data));
 }
 
-function* fetchTrack({ payload }) {
+function* fetchTrack({ payload: id }) {
     const currentTrackId = yield select(getCurrentTrackId);
+    const tracks = yield select(getTracks);
+    const track = getTrackById(tracks, id);
 
     // Prevent downloading the same song
-    if (currentTrackId !== payload.id) {
+    if (currentTrackId !== id) {
         const data = yield call(() => {
-                return SC.stream(`/tracks/${payload.id}`).then(sound =>
+                return SC.stream(`/tracks/${id}`).then(sound =>
                     ({
                         player: sound,
-                        currentTrack: payload
+                        currentTrack: track
                     })
                 );
             }

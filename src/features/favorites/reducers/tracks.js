@@ -17,7 +17,7 @@ export const tracks = (state = initialState, {type, payload = null}) => {
             return {
                 ...state,
                 loading: true,
-                error: false,
+                error: false
             };
         case REQUESTED_FAVORITE_TRACKS_SUCCEED:
             return {
@@ -32,13 +32,13 @@ export const tracks = (state = initialState, {type, payload = null}) => {
                     return item;
                 }),
                 loading: false,
-                error: false,
+                error: false
             };
         case REQUESTED_FAVORITE_TRACKS_FAILED:
             return {
                 ...state,
                 loading: false,
-                error: true,
+                error: true
             };
         default:
             return state;
