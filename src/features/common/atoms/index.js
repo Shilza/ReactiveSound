@@ -1,5 +1,6 @@
 import PlayerTime from './PlayerTime';
-import TimeLine from './TimeLIne';
 
-export { TimeLine }
+export { PlayButton } from './PlayButton';
+export { TimeLine } from './TimeLIne';
+export { withTimeLine } from './wthTimeLine';
 export { PlayerTime };
