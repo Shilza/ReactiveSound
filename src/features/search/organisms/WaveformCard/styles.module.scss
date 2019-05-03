@@ -8,6 +8,14 @@
   color: #ffffff;
 }
 
+.coverContainer {
+  position: relative;
+  height: 100%;
+  width: 220px;
+  background-color: rgb(77, 78, 79);
+}
+
 .cover {
+  position: absolute;
   height: 100%;
 }
