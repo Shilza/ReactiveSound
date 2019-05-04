@@ -18,6 +18,6 @@ export const Tracks = withLoader(({tracks, currentTrackId}) => (
 ));
 
 export default connect(state => ({
-    currentTrackId: state.favorite.player.currentTrack && state.favorite.player.currentTrack.id
+    currentTrackId: state.player.currentTrack && state.player.currentTrack.id
 }))(Tracks);
 

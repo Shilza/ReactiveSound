@@ -1,11 +1,11 @@
+import MediaQuery from "react-responsive";
+import {connect} from "react-redux";
 import React, {useEffect} from "react";
 import {CommonContent} from "../../common/templates";
 import {SubHeader} from "../../favorites/organisms";
-import {connect} from "react-redux";
 import {fetchSearchTracks} from "../actionCreators";
 import {Tracks} from "../../favorites/templates/Tracks";
-import MediaQuery from "react-responsive";
-import {WaveformTracks} from "../templates";
+import {WaveformTracks} from "../../../ui/templates";
 
 const Search = ({match: {params}, dispatch, loading, tracks}) => {
 
@@ -19,7 +19,7 @@ const Search = ({match: {params}, dispatch, loading, tracks}) => {
             <MediaQuery minWidth={960}>
                 {(matches) => {
                     if (matches) {
-                        return <WaveformTracks dispatch={dispatch} tracks={tracks} loading={loading}/>
+                        return <WaveformTracks tracks={tracks} loading={loading}/>
                     } else {
                         return <Tracks tracks={tracks} loading={loading}/>;
                     }

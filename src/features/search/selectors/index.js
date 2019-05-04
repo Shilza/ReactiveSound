@@ -1,5 +1,5 @@
 
-export const getSearchTracks = state => state.search.search.tracks;
+export const getWaveformTracks = state => [...state.search.search.tracks, ...state.user.tracks.data, ...state.user.likedTracks.data];
 
 export const getWaveformUrlById = (tracks, id) => {
     let track = tracks.find(item => item.id === id);

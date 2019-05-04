@@ -1,2 +1,0 @@
-
-export {WaveformCard} from './WaveformCard';

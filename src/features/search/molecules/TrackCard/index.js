@@ -37,7 +37,7 @@ const TrackCard = ({id, onPlay, userId, link, isPlay, duration, title, dispatch,
 };
 
 export default connect(state => ({
-    player: state.favorite.player.player,
-    currentTrackId: state.favorite.player.currentTrack && state.favorite.player.currentTrack.id,
-    trackIntervalId: state.favorite.player.trackIntervalId
+    player: state.player.player,
+    currentTrackId: state.player.currentTrack && state.player.currentTrack.id,
+    trackIntervalId: state.player.trackIntervalId
 }))(TrackCard);

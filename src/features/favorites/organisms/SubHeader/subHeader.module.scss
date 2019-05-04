@@ -2,12 +2,13 @@
 .subHeader {
   background-color: #1d1e1f;
   margin-bottom: 40px;
-  height: 140px;
+  min-height: 140px;
   padding: 20px 20px 0 20px;
 }
 
 .container {
   max-width: 960px;
+  height: 100%;
   margin: 15px auto;
 }
 
@@ -20,7 +21,7 @@
   font-size: 2.25rem;
   font-weight: 300;
   line-height: 1.1666666667;
-  overflow: hidden;
+  height: 45px;
   margin-top: 5px;
   text-overflow: ellipsis;
   white-space: nowrap;

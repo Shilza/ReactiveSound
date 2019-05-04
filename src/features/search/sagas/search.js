@@ -16,7 +16,7 @@ function* fetchSearchTracksAsync({payload: query}) {
             const data = yield call(() => {
                     return SC.get('/tracks', {
                         q: query,
-                        limit: 60
+                        limit: 20
                     }).then(tracks => tracks);
                 }
             );

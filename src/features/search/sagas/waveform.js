@@ -1,6 +1,6 @@
 import {FETCHED_WAVEFORM_TRACKS} from "../actionTypes";
 import {call, put, select, takeEvery} from "redux-saga/effects";
-import {getSearchTracks, getWaveformUrlById} from "../selectors";
+import {getWaveformTracks, getWaveformUrlById} from "../selectors";
 import {requestWaveformSuccess} from "../actionCreators";
 
 export function* watchFetchWaveform() {
@@ -8,7 +8,7 @@ export function* watchFetchWaveform() {
 }
 
 function* fetchWaveformAsync({payload: id}) {
-    const tracks = yield select(getSearchTracks);
+    const tracks = yield select(getWaveformTracks);
     const url = getWaveformUrlById(tracks, id);
     const response = yield call(fetch, url);
     const data = yield call([response, response.json]);

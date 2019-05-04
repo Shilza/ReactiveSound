@@ -1,4 +1,3 @@
-
 const convertMsToString = (ms = 0) => {
     let minutes = Math.floor(ms / (1000 * 60));
     let seconds = Math.floor((ms - minutes * 1000 * 60) / 1000);
@@ -11,7 +10,30 @@ const convertStringToMs = (string = '') => {
     return minutes * 1000 * 60 + seconds * 1000;
 };
 
+const transformTrack = track => {
+    if (track.artwork_url)
+        track.artwork_url = track.artwork_url.substr(0, track.artwork_url.length - 9) + 't250x250.jpg';
+    else
+        track.artwork_url = track.user.avatar_url.substr(0, track.user.avatar_url.length - 9) + 't250x250.jpg';
+
+    track.duration = convertMsToString(track.duration);
+    track.waveform_url = track.waveform_url.replace('://wave', '://wis').replace('.png', '.json');
+
+    return track;
+};
+
+const setWaveform = (track, {id, data}) => {
+        if(track.id === id) {
+            track.waveform = data;
+            return {...track};
+        }
+
+        return track;
+};
+
 export {
     convertMsToString,
-    convertStringToMs
+    convertStringToMs,
+    transformTrack,
+    setWaveform
 };
