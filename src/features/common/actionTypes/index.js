@@ -1,0 +1,9 @@
+export const FETCHED_TRACK = 'FETCHED_TRACK';
+export const FETCHED_NEXT = 'FETCHED_NEXT';
+export const FETCHED_PREVIOUS = 'FETCHED_PREVIOUS';
+export const SET_PLAYER = 'SET_PLAYER';
+export const PLAY_TRACK = 'PLAY_TRACK';
+export const PAUSE_TRACK = 'PAUSE_TRACK';
+export const SET_PLAYER_INTERVAL = 'SET_PLAYER_INTERVAL';
+export const SET_CURRENT_TIME = 'SET_CURRENT_TIME';
+export const SEEK_TO = 'SEEK_TO';
