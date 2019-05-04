@@ -1,0 +1,48 @@
+
+.unit {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
+%label {
+  padding-bottom: 8px;
+  color: #808182;
+}
+
+.labelActive {
+  @extend %label;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px solid #9a5b45;
+    animation: borderActive 260ms ease-out;
+  }
+}
+
+@keyframes borderActive {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.label {
+  @extend %label;
+  border-bottom: 1px solid #363738;
+}
+
+.count {
+  padding-top: 5px;
+  font-size: 1.5rem;
+  line-height: 1.4285714286;
+  color: #aaabac;
+}
