@@ -1,9 +1,5 @@
-import React from "react";
-import {CommonContent} from "../../common/templates";
-import {SubHeader} from "../../favorites/organisms";
+import User from './User';
+import Liked from './Liked';
 
-export const User = ({match: {params}}) => (
-    <CommonContent>
-        <SubHeader location={params.id}/>
-    </CommonContent>
-);
+export {Liked};
+export {User};
