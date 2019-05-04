@@ -3,10 +3,12 @@ import { RootReducer } from './reducers';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 import { favoritesSaga } from "./features/favorites/sagas";
-import {trackInterval} from "./features/favorites/middlewares/trackInterval";
-import {seek} from "./features/favorites/middlewares/seek";
-import {stopPlayer} from "./features/favorites/middlewares/stopPlayer";
+import {trackInterval} from "./features/common/middlewares/trackInterval";
+import {seek} from "./features/common/middlewares/seek";
+import {stopPlayer} from "./features/common/middlewares/stopPlayer";
 import {searchSaga} from "./features/search/sagas";
+import {usersSaga} from "./features/users/sagas";
+import {playerSaga} from "./features/common/sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -18,7 +20,9 @@ const store = createStore(
 function* rootSaga() {
     yield all([
         favoritesSaga(),
-        searchSaga()
+        playerSaga(),
+        searchSaga(),
+        usersSaga()
     ])
 }
 

@@ -1,6 +1,7 @@
 import {Favorites} from "./features/favorites";
 import {Search} from "./features/search";
 import {User} from "./features/users";
+import {Liked} from "./features/users";
 
 export const routes = [
     {
@@ -17,5 +18,10 @@ export const routes = [
         path: '/users/:id/tracks',
         exact: true,
         component: User
+    },
+    {
+        path: '/users/:id/liked',
+        exact: true,
+        component: Liked
     }
 ];

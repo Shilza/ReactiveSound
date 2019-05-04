@@ -1,2 +1,2 @@
 
-export {User} from './pages';
+export {User, Liked} from './pages';
