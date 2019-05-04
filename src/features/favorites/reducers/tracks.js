@@ -3,7 +3,7 @@ import {
     REQUESTED_FAVORITE_TRACKS_FAILED,
     REQUESTED_FAVORITE_TRACKS_SUCCEED
 } from "../actionTypes";
-import {convertMsToString} from "../../common/utils";
+import {transformTrack} from "../../common/utils";
 
 const initialState = {
     tracks: [],
@@ -21,16 +21,7 @@ export const tracks = (state = initialState, {type, payload = null}) => {
             };
         case REQUESTED_FAVORITE_TRACKS_SUCCEED:
             return {
-                tracks: payload.map(item => {
-                    if(item.artwork_url)
-                        item.artwork_url = item.artwork_url.substr(0, item.artwork_url.length - 9) + 't250x250.jpg';
-                    else
-                        item.artwork_url = item.user.avatar_url.substr(0, item.user.avatar_url.length - 9) + 't250x250.jpg';
-
-                    item.duration = convertMsToString(item.duration);
-
-                    return item;
-                }),
+                tracks: payload.map(transformTrack),
                 loading: false,
                 error: false
             };

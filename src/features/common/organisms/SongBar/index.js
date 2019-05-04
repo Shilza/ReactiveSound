@@ -31,7 +31,7 @@ const SongBar = ({player, title, currentTrackId}) => (
 );
 
 export default connect(state => ({
-    player: state.favorite.player.player,
-    title: state.favorite.player.currentTrack && state.favorite.player.currentTrack.title,
-    currentTrackId: state.favorite.player.currentTrack && state.favorite.player.currentTrack.id
+    player: state.player.player,
+    title: state.player.currentTrack && state.player.currentTrack.title,
+    currentTrackId: state.player.currentTrack && state.player.currentTrack.id
 }))(SongBar);

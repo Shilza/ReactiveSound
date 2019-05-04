@@ -1,4 +1,4 @@
-import {fetchTrack, pauseTrack, playTrack} from "../../../favorites/actionCreators";
+import {fetchTrack, pauseTrack, playTrack} from "../../actionCreators";
 import {useCallback, useEffect} from "react";
 import hoistNonReactStatics from "hoist-non-react-statics";
 import React from "react";
@@ -35,9 +35,9 @@ export const withPlayer = WrappedComponent => {
 };
 
 const mapStateToProps = state => ({
-    player: state.favorite.player.player,
-    currentTrackId: state.favorite.player.currentTrack && state.favorite.player.currentTrack.id,
-    trackIntervalId: state.favorite.player.trackIntervalId
+    player: state.player.player,
+    currentTrackId: state.player.currentTrack && state.player.currentTrack.id,
+    trackIntervalId: state.player.trackIntervalId
 });
 
 const getDisplayName = WrappedComponent => {

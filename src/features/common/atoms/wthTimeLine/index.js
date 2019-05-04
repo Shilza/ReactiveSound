@@ -1,6 +1,6 @@
 import {useMemo, useRef} from "react";
 import {convertStringToMs} from "../../utils";
-import {seekTo} from "../../../favorites/actionCreators";
+import {seekTo} from "../../actionCreators";
 import hoistNonReactStatics from "hoist-non-react-statics";
 import React from "react";
 import {connect} from "react-redux";
@@ -44,9 +44,9 @@ export const withTimeLine = WrappedComponent => {
 };
 
 const mapStateToProps = state => ({
-    currentTime: state.favorite.player.currentTime,
-    duration: state.favorite.player.currentTrack && state.favorite.player.currentTrack.duration,
-    currentTrackId: state.favorite.player.currentTrack && state.favorite.player.currentTrack.id
+    currentTime: state.player.currentTime,
+    duration: state.player.currentTrack && state.player.currentTrack.duration,
+    currentTrackId: state.player.currentTrack && state.player.currentTrack.id
 });
 
 function getDisplayName(WrappedComponent) {

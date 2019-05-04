@@ -2,7 +2,7 @@ import React, {useCallback} from "react";
 import styles from './styles.module.scss';
 import {Icon} from "../../../../ui/atoms/Icon";
 import {Button} from "../../../../ui/atoms";
-import {fetchNext, fetchPrevious, pauseTrack, playTrack} from "../../../favorites/actionCreators";
+import {fetchNext, fetchPrevious, pauseTrack, playTrack} from "../../actionCreators";
 import {connect} from "react-redux";
 
 const PlayerControls = ({player, trackIntervalId, dispatch}) => {
@@ -41,6 +41,6 @@ const PlayerControls = ({player, trackIntervalId, dispatch}) => {
 };
 
 export default connect(state => ({
-    player: state.favorite.player.player,
-    trackIntervalId: state.favorite.player.trackIntervalId
+    player: state.player.player,
+    trackIntervalId: state.player.trackIntervalId
 }))(PlayerControls);

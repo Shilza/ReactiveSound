@@ -12,6 +12,6 @@ const PlayerTime = ({currentTime, duration}) => (
 );
 
 export default connect(state => ({
-    currentTime: state.favorite.player.currentTime,
-    duration: state.favorite.player.currentTrack.duration
+    currentTime: state.player.currentTime,
+    duration: state.player.currentTrack && state.player.currentTrack.duration
 }))(PlayerTime);
