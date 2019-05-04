@@ -1,11 +1,13 @@
 import React, {useEffect} from "react";
 import styles from './styles.module.scss';
-import {TrackCard} from "../../molecules";
-import {fetchWaveform} from "../../actionCreators";
+import {TrackCard} from "../../../features/search/molecules/index";
+import {fetchWaveform} from "../../../features/search/actionCreators/index";
+import {connect} from "react-redux";
 
-export const WaveformCard = ({id, title, user, dispatch, artwork_url, duration, likes_count, playback_count, waveform}) => {
+const WaveformCard = ({id, dispatch, title, user, artwork_url, duration, likes_count, playback_count, waveform}) => {
+
     useEffect(() => {
-        dispatch(fetchWaveform(id))
+        dispatch(fetchWaveform(id));
     }, [id, dispatch]);
 
     return (
@@ -23,3 +25,5 @@ export const WaveformCard = ({id, title, user, dispatch, artwork_url, duration, 
         </article>
     );
 };
+
+export default connect()(WaveformCard);
