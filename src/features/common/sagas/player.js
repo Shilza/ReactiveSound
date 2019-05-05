@@ -22,8 +22,8 @@ export function* watchFetchPrevious() {
     yield takeEvery(FETCHED_PREVIOUS, fetchPrevious);
 }
 
-function* fetchNext() {
-    const track = yield select(getNextTrack);
+function* fetchNext({payload}) {
+    const track = yield select(getNextTrack, payload);
     const data = yield call(() => {
             return SC.stream(`/tracks/${track.id}`).then(sound =>
                 ({
@@ -36,8 +36,8 @@ function* fetchNext() {
     yield put(setPlayer(data));
 }
 
-function* fetchPrevious() {
-    const track = yield select(getPreviousTrack);
+function* fetchPrevious({payload}) {
+    const track = yield select(getPreviousTrack, payload);
     const data = yield call(() => {
             return SC.stream(`/tracks/${track.id}`).then(sound =>
                 ({

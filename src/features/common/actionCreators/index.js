@@ -23,6 +23,6 @@ export const pauseTrack = () => ({ type: PAUSE_TRACK });
 
 export const seekTo = payload => ({ type: SEEK_TO, payload });
 
-export const fetchNext = () => ({ type: FETCHED_NEXT });
+export const fetchNext = payload => ({ type: FETCHED_NEXT, payload });
 
-export const fetchPrevious = () => ({ type: FETCHED_PREVIOUS });
+export const fetchPrevious = payload => ({ type: FETCHED_PREVIOUS, payload });

@@ -1,9 +1,11 @@
-export const getCurrentTrackId = store => store.player.currentTrack && store.player.currentTrack.id;
+export const getCurrentTrackId = state => state.player.currentTrack && state.player.currentTrack.id;
 
-export const getNextTrack = store => {
-    let id = store.player.currentTrack.id;
-    let nextTrack = {};
-    getTracks(store).forEach((item, index, array) => {
+export const getNextTrack = (state, location) => {
+    let id = state.player.currentTrack.id;
+    let nextTrack = undefined;
+
+    let tracks = getTracksByLocation(state, location);
+    tracks.forEach((item, index, array) => {
         if (item.id === id) {
             if (array.length - 1 >= index + 1)
                 nextTrack = array[index + 1];
@@ -12,6 +14,11 @@ export const getNextTrack = store => {
         }
     });
 
+    if (Object.is(nextTrack, undefined))
+        nextTrack = tracks[0];
+
+    console.log(tracks, nextTrack);
+
     return {
         id: nextTrack.id,
         duration: nextTrack.duration,
@@ -19,10 +26,12 @@ export const getNextTrack = store => {
     };
 };
 
-export const getPreviousTrack = store => {
-    let id = store.player.currentTrack.id;
-    let previousTrack = {};
-    getTracks(store).forEach((item, index, array) => {
+export const getPreviousTrack = (state, location) => {
+    let id = state.player.currentTrack.id;
+    let previousTrack = undefined;
+
+    let tracks = getTracksByLocation(state, location);
+    tracks.forEach((item, index, array) => {
         if (item.id === id) {
             if (index - 1 >= 0)
                 previousTrack = array[index - 1];
@@ -31,6 +40,10 @@ export const getPreviousTrack = store => {
         }
     });
 
+    if (Object.is(previousTrack, undefined))
+        previousTrack = tracks[0];
+
+    console.log(tracks, previousTrack);
     return {
         id: previousTrack.id,
         duration: previousTrack.duration,
@@ -38,11 +51,22 @@ export const getPreviousTrack = store => {
     };
 };
 
-export const getTracks = store => [
-    ...store.favorite.tracks.tracks,
-    ...store.search.search.tracks,
-    ...store.user.tracks.data,
-    ...store.user.likedTracks.data
+const getTracksByLocation = (state, location) => {
+    if (location.includes('search'))
+        return state.search.search.tracks;
+    else if (location.includes('tracks'))
+        return state.user.tracks.data;
+    else if (location.includes('liked'))
+        return state.user.likedTracks.data;
+    else
+        return state.favorite.tracks.tracks;
+};
+
+export const getTracks = state => [
+    ...state.favorite.tracks.tracks,
+    ...state.search.search.tracks,
+    ...state.user.tracks.data,
+    ...state.user.likedTracks.data
 ];
 
 export const getTrackById = (tracks, id) => tracks.find(item => item.id === id);

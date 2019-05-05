@@ -4,8 +4,9 @@ import {Icon} from "../../../../ui/atoms/Icon";
 import {Button} from "../../../../ui/atoms";
 import {fetchNext, fetchPrevious, pauseTrack, playTrack} from "../../actionCreators";
 import {connect} from "react-redux";
+import {withRouter} from "react-router";
 
-const PlayerControls = ({player, trackIntervalId, dispatch}) => {
+const PlayerControls = withRouter(({player, trackIntervalId, location, dispatch}) => {
     const onPlay = useCallback(() => {
         if (player)
             player.isPlaying() ? dispatch(pauseTrack()) : dispatch(playTrack());
@@ -13,11 +14,11 @@ const PlayerControls = ({player, trackIntervalId, dispatch}) => {
     let isPlay = !Object.is(trackIntervalId, null);
 
     const onNext = () => {
-        dispatch(fetchNext());
+        dispatch(fetchNext(location.pathname));
     };
 
     const onPrevious = () => {
-        dispatch(fetchPrevious());
+        dispatch(fetchPrevious(location.pathname));
     };
 
     return (
@@ -38,7 +39,7 @@ const PlayerControls = ({player, trackIntervalId, dispatch}) => {
             </Button>
         </div>
     );
-};
+});
 
 export default connect(state => ({
     player: state.player.player,
