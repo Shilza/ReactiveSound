@@ -2,12 +2,13 @@ import {
     REQUESTED_SEARCH_TRACKS,
     REQUESTED_SEARCH_TRACKS_FAILED,
     REQUESTED_SEARCH_TRACKS_SUCCEED,
-    REQUESTED_WAVEFORM_SUCCEED
+    REQUESTED_WAVEFORM_SUCCEED, RESET_SERACH_TRACKS
 } from "../actionTypes";
-import {setWaveform, transformTrack} from "../../common/utils";
+import {getUnique, setWaveform, transformTrack} from "../../common/utils";
 
 const initialState = {
     tracks: [],
+    nextPage: undefined,
     query: undefined,
     loading: false,
     error: false,
@@ -23,7 +24,8 @@ export const search = (state = initialState, {type, payload = null}) => {
             };
         case REQUESTED_SEARCH_TRACKS_SUCCEED:
             return {
-                tracks: payload.data.map(transformTrack),
+                tracks: getUnique(state.tracks.concat(payload.collection.map(transformTrack))),
+                nextPage: payload.next_href,
                 query: payload.query,
                 loading: false,
                 error: false
@@ -38,6 +40,12 @@ export const search = (state = initialState, {type, payload = null}) => {
             return {
                 ...state,
                 tracks: state.tracks.map(track => setWaveform(track, payload))
+            };
+        case RESET_SERACH_TRACKS:
+            return {
+                ...state,
+                tracks: [],
+                nextPage: undefined
             };
         default:
             return state;

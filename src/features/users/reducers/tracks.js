@@ -1,6 +1,11 @@
-import {REQUESTED_USERS_TRACKS, REQUESTED_USERS_TRACKS_FAILED, REQUESTED_USERS_TRACKS_SUCCEED} from "../actionTypes";
+import {
+    REQUESTED_USERS_TRACKS,
+    REQUESTED_USERS_TRACKS_FAILED,
+    REQUESTED_USERS_TRACKS_SUCCEED,
+    RESET_USERS_TRACKS
+} from "../actionTypes";
 import {REQUESTED_WAVEFORM_SUCCEED} from "../../search/actionTypes";
-import {setWaveform, transformTrack} from "../../common/utils";
+import {getUnique, setWaveform, transformTrack} from "../../common/utils";
 
 const initialState = {
     data: [],
@@ -10,17 +15,16 @@ const initialState = {
 };
 
 export const tracks = (state = initialState, {type, payload = null}) => {
-    console.log(type, payload);
     switch (type) {
         case REQUESTED_USERS_TRACKS:
             return {
-                data: payload,
+                ...state,
                 loading: true,
                 error: false
             };
         case REQUESTED_USERS_TRACKS_SUCCEED:
             return {
-                data: payload.collection.map(transformTrack),
+                data: getUnique(state.data.concat(payload.collection.map(transformTrack))),
                 nextPage: payload.next_href,
                 loading: false,
                 error: false
@@ -35,6 +39,12 @@ export const tracks = (state = initialState, {type, payload = null}) => {
             return {
                 ...state,
                 data: state.data.map(track => setWaveform(track, payload))
+            };
+        case RESET_USERS_TRACKS:
+            return {
+                ...state,
+                data: [],
+                nextPage: undefined
             };
         default:
             return state;

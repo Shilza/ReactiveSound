@@ -1,12 +1,14 @@
 import { all } from 'redux-saga/effects';
-import {watchFetchUsersTracks} from "./tracks";
+import {watchFetchUsersTracks, watchFetchUsersTracksByPage} from "./tracks";
 import {watchFetchUser} from "./user";
-import {watchFetchUsersLikedTracks} from "./likedTracks";
+import {watchFetchLikedTracksByPage, watchFetchUsersLikedTracks} from "./likedTracks";
 
 export function* usersSaga() {
     yield all([
         watchFetchUsersTracks(),
+        watchFetchUsersTracksByPage(),
         watchFetchUsersLikedTracks(),
+        watchFetchLikedTracksByPage(),
         watchFetchUser()
     ])
 }

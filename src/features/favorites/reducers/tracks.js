@@ -7,6 +7,7 @@ import {transformTrack} from "../../common/utils";
 
 const initialState = {
     tracks: [],
+    nextPage: undefined,
     loading: false,
     error: false,
 };
@@ -21,7 +22,8 @@ export const tracks = (state = initialState, {type, payload = null}) => {
             };
         case REQUESTED_FAVORITE_TRACKS_SUCCEED:
             return {
-                tracks: payload.map(transformTrack),
+                tracks: state.tracks.concat(payload.collection.map(transformTrack)),
+                nextPage: payload.next_href,
                 loading: false,
                 error: false
             };

@@ -1,29 +1,37 @@
 import {CommonContent} from "../../common/";
-import React, {useEffect} from "react";
+import React, {useCallback, useEffect} from "react";
 import {SubHeader} from "../organisms";
 import {Tracks} from "../templates";
 import {connect} from "react-redux";
-import {fetchFavoriteTracks} from "../actionCreators";
+import {fetchFavoriteTracks, fetchFavoriteTracksByPage} from "../actionCreators";
+import {Loader} from "../../common/organisms";
 
-const Favorites = ({dispatch, tracks, loading, error}) => {
+const Favorites = ({dispatch, tracks, loading, nextPage}) => {
     useEffect(() => {
         if (tracks.length === 0)
             dispatch(fetchFavoriteTracks());
-    }, [dispatch, loading,tracks]);
+    }, [dispatch, tracks]);
+
+    const fetchNext = useCallback(() => {
+        dispatch(fetchFavoriteTracksByPage());
+    }, [dispatch]);
 
     return (
         <CommonContent>
             <SubHeader section='Spotlight' location='Featured Tracks'/>
             {
-                error && <span>Error! Something went wrong</span>
+                loading ?
+                    <Loader/>
+                    :
+                    <Tracks hasMore={typeof nextPage === 'string'} fetchNext={fetchNext} tracks={tracks}/>
             }
-            <Tracks tracks={tracks} loading={loading}/>
         </CommonContent>
     );
 };
 
 export default connect(state => ({
     error: state.favorite.tracks.error,
-    loading: state.favorite.tracks.loading,
-    tracks: state.favorite.tracks.tracks
+    tracks: state.favorite.tracks.tracks,
+    nextPage: state.favorite.tracks.nextPage,
+    loading: state.favorite.tracks.loading
 }))(Favorites);

@@ -1,30 +1,24 @@
-import MediaQuery from "react-responsive";
 import {connect} from "react-redux";
-import React, {useEffect} from "react";
+import React, {useCallback, useEffect} from "react";
 import {CommonContent} from "../../common/templates";
 import {SubHeader} from "../../favorites/organisms";
-import {fetchSearchTracks} from "../actionCreators";
-import {Tracks} from "../../favorites/templates/Tracks";
-import {WaveformTracks} from "../../../ui/templates";
+import {fetchSearchTracks, fetchSearchTracksByPage} from "../actionCreators";
+import {AdaptiveTracks} from "../../../ui/templates";
 
-const Search = ({match: {params}, dispatch, loading, tracks}) => {
+const Search = ({match: {params}, dispatch, loading, nextPage, tracks}) => {
 
     useEffect(() => {
         dispatch(fetchSearchTracks(params.query))
     }, [params, dispatch]);
 
+    const fetchNext = useCallback(() => {
+        dispatch(fetchSearchTracksByPage());
+    }, [dispatch]);
+
     return (
         <CommonContent>
             <SubHeader section='Search Results' location={params.query}/>
-            <MediaQuery minWidth={960}>
-                {(matches) => {
-                    if (matches) {
-                        return <WaveformTracks tracks={tracks} loading={loading}/>
-                    } else {
-                        return <Tracks tracks={tracks} loading={loading}/>;
-                    }
-                }}
-            </MediaQuery>
+            <AdaptiveTracks loading={loading} fetchNext={fetchNext} hasMore={typeof nextPage === 'string'} tracks={tracks}/>
         </CommonContent>
     );
 };
@@ -32,5 +26,6 @@ const Search = ({match: {params}, dispatch, loading, tracks}) => {
 export default connect(state => ({
     error: state.search.search.error,
     loading: state.search.search.loading,
-    tracks: state.search.search.tracks
+    tracks: state.search.search.tracks,
+    nextPage: state.search.search.nextPage
 }))(Search);
