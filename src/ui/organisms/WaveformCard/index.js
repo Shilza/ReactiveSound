@@ -7,8 +7,9 @@ import {connect} from "react-redux";
 const WaveformCard = ({id, dispatch, title, user, artwork_url, duration, likes_count, playback_count, waveform}) => {
 
     useEffect(() => {
-        dispatch(fetchWaveform(id));
-    }, [id, dispatch]);
+        if (Object.is(waveform, undefined))
+            dispatch(fetchWaveform(id));
+    }, [id, waveform, dispatch]);
 
     return (
         <article className={styles.container}>
