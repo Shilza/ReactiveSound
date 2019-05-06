@@ -3,9 +3,9 @@ import {
     REQUESTED_USERS_LIKED_TRACKS_FAILED,
     REQUESTED_USERS_LIKED_TRACKS_SUCCEED,
     RESET_LIKED_TRACKS
-} from "../actionTypes";
-import {REQUESTED_WAVEFORM_SUCCEED} from "../../search/actionTypes";
+} from "../actionTypes"
 import {getUnique, setWaveform, transformTrack} from "../../common/utils";
+import {REQUESTED_WAVEFORM_SUCCEED} from "../../common/actionTypes";
 
 const initialState = {
     data: [],

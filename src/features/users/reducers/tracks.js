@@ -4,8 +4,8 @@ import {
     REQUESTED_USERS_TRACKS_SUCCEED,
     RESET_USERS_TRACKS
 } from "../actionTypes";
-import {REQUESTED_WAVEFORM_SUCCEED} from "../../search/actionTypes";
 import {getUnique, setWaveform, transformTrack} from "../../common/utils";
+import {REQUESTED_WAVEFORM_SUCCEED} from "../../common/actionTypes";
 
 const initialState = {
     data: [],

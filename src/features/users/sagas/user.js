@@ -17,10 +17,7 @@ function* fetchUserAsync({payload: id}) {
         const currentUserId = yield select(getCurrentUserId);
         if (id !== currentUserId) {
             yield put(requestUser());
-            const data = yield call(() => {
-                    return SC.get('/users/' + id).then(tracks => tracks);
-                }
-            );
+            const data = yield call(() => SC.get('/users/' + id).then(tracks => tracks));
             yield put(requestUserSuccess(data));
         }
     } catch (error) {

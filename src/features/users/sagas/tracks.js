@@ -34,8 +34,7 @@ function* fetchUsersTracksAsync({payload: id}) {
         const countOfTracks = yield select(getCountOfUsersTracks);
         const currentUserId = yield select(getCurrentUserId);
 
-        console.log(countOfTracks);
-        if (id !== currentUserId  || countOfTracks === 0) {
+        if (id !== currentUserId || countOfTracks === 0) {
             yield put(resetUsersTracks());
             yield put(requestUsersTracks());
             const data = yield call(() => {

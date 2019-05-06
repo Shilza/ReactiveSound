@@ -17,8 +17,6 @@ export const getNextTrack = (state, location) => {
     if (Object.is(nextTrack, undefined))
         nextTrack = tracks[0];
 
-    console.log(tracks, nextTrack);
-
     return {
         id: nextTrack.id,
         duration: nextTrack.duration,
@@ -43,7 +41,6 @@ export const getPreviousTrack = (state, location) => {
     if (Object.is(previousTrack, undefined))
         previousTrack = tracks[0];
 
-    console.log(tracks, previousTrack);
     return {
         id: previousTrack.id,
         duration: previousTrack.duration,
@@ -53,7 +50,7 @@ export const getPreviousTrack = (state, location) => {
 
 const getTracksByLocation = (state, location) => {
     if (location.includes('search'))
-        return state.search.search.tracks;
+        return state.search.tracks;
     else if (location.includes('tracks'))
         return state.user.tracks.data;
     else if (location.includes('liked'))
@@ -64,7 +61,7 @@ const getTracksByLocation = (state, location) => {
 
 export const getTracks = state => [
     ...state.favorite.tracks.tracks,
-    ...state.search.search.tracks,
+    ...state.search.tracks,
     ...state.user.tracks.data,
     ...state.user.likedTracks.data
 ];

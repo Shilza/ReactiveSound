@@ -33,8 +33,7 @@ function* fetchUsersLikedTracksAsync({payload: id}) {
         const countOfTracks = yield select(getCountOfLikedTracks);
         const currentUserId = yield select(getCurrentUserId);
 
-        console.log(countOfTracks);
-        if(id !== currentUserId || countOfTracks === 0) {
+        if (id !== currentUserId || countOfTracks === 0) {
             yield put(resetLikedTracks());
             yield put(requestUsersLikedTracks());
             const data = yield call(() => {
