@@ -1,5 +1,5 @@
 import {useMemo, useRef} from "react";
-import {convertStringToMs} from "../../utils";
+import {convertStringToMs, getDisplayName} from "../../utils";
 import {seekTo} from "../../actionCreators";
 import hoistNonReactStatics from "hoist-non-react-statics";
 import React from "react";
@@ -37,7 +37,7 @@ export const withTimeLine = WrappedComponent => {
     hoistNonReactStatics(WrappedTimeLine, WrappedComponent);
 
     WrappedTimeLine.displayName = `WrappedTimeLine(${getDisplayName(
-        WrappedComponent
+        WrappedComponent, "WrappedTimeLine"
     )})`;
 
     return WrappedTimeLine;
@@ -48,9 +48,3 @@ const mapStateToProps = state => ({
     duration: state.player.currentTrack && state.player.currentTrack.duration,
     currentTrackId: state.player.currentTrack && state.player.currentTrack.id
 });
-
-function getDisplayName(WrappedComponent) {
-    return (
-        WrappedComponent.displayName || WrappedComponent.name || "WrappedTimeLine"
-    );
-}

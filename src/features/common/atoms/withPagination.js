@@ -2,6 +2,7 @@ import React from "react";
 import hoistNonReactStatics from "hoist-non-react-statics";
 import InfiniteScroll from 'react-infinite-scroller';
 import {Loader} from "../organisms/Loader";
+import {getDisplayName} from "../utils";
 
 export const withPagination = WrappedComponent => {
     const Paginator = ({fetchNext, hasMore, ...props}) => (
@@ -18,14 +19,8 @@ export const withPagination = WrappedComponent => {
     hoistNonReactStatics(Paginator, WrappedComponent);
 
     Paginator.displayName = `Paginator(${getDisplayName(
-        WrappedComponent
+        WrappedComponent, "Paginator"
     )})`;
 
     return Paginator;
 };
-
-function getDisplayName(WrappedComponent) {
-    return (
-        WrappedComponent.displayName || WrappedComponent.name || "Paginator"
-    );
-}

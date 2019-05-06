@@ -3,14 +3,14 @@ import {useCallback, useEffect} from "react";
 import hoistNonReactStatics from "hoist-non-react-statics";
 import React from "react";
 import {connect} from "react-redux";
+import {getDisplayName} from "../../utils";
 
 export const withPlayer = WrappedComponent => {
 
     const PlayerWrapper = connect(mapStateToProps)(({dispatch, player, currentTrackId, trackIntervalId, id, ...props}) => {
         useEffect(() => {
-            if (player && currentTrackId === id) {
+            if (player && currentTrackId === id)
                 dispatch(playTrack());
-            }
         }, [player, dispatch, currentTrackId, id]);
 
         const onPlay = useCallback(() => {
@@ -28,7 +28,7 @@ export const withPlayer = WrappedComponent => {
     hoistNonReactStatics(PlayerWrapper, WrappedComponent);
 
     PlayerWrapper.displayName = `PlayerWrapper(${getDisplayName(
-        WrappedComponent
+        WrappedComponent, "PlayerWrapper"
     )})`;
 
     return PlayerWrapper;
@@ -39,9 +39,3 @@ const mapStateToProps = state => ({
     currentTrackId: state.player.currentTrack && state.player.currentTrack.id,
     trackIntervalId: state.player.trackIntervalId
 });
-
-const getDisplayName = WrappedComponent => {
-    return (
-        WrappedComponent.displayName || WrappedComponent.name || "PlayerWrapper"
-    );
-};

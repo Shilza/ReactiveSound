@@ -1,3 +1,4 @@
+
 const convertMsToString = (ms = 0) => {
     let minutes = Math.floor(ms / (1000 * 60));
     let seconds = Math.floor((ms - minutes * 1000 * 60) / 1000);
@@ -43,10 +44,13 @@ const getUnique = array => {
     return result;
 };
 
+const getDisplayName = (WrappedComponent, name) => WrappedComponent.displayName || WrappedComponent.name || name;
+
 export {
     convertMsToString,
     convertStringToMs,
     transformTrack,
     setWaveform,
-    getUnique
+    getUnique,
+    getDisplayName
 };
