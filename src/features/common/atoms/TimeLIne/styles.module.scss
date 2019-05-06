@@ -1,3 +1,4 @@
+@import '../../../../styles/utils.module';
 
 .timeLine {
   position: absolute;
@@ -11,7 +12,7 @@
   top: 0;
   left: 0;
   height: 4px;
-  background-color: #506f43;
+  background-color: color('activeTimeline');
   transition: 170ms;
   transition-timing-function: ease-out;
 }
