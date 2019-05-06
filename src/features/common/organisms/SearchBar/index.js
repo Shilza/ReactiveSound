@@ -1,11 +1,13 @@
 import React, {useCallback, useEffect, useRef} from "react";
 import styles from './styles.module.scss';
 import {withRouter} from "react-router";
+import {useOnClickOutside} from "../../hooks";
 
 export const SearchBar = withRouter(({visible, hideBar, history}) => {
     let barRef = useRef();
     let inputRef = useRef();
 
+    // If click on searchButton then close search bar
     const except = useCallback(
         event => event.target.id === 'searchButton' || event.target.id === 'searchIcon'
     , []);
@@ -37,23 +39,3 @@ export const SearchBar = withRouter(({visible, hideBar, history}) => {
         </div>
     );
 });
-
-function useOnClickOutside(ref, handler, except) {
-    useEffect(
-        () => {
-            const listener = event => {
-                if (!ref.current || ref.current.contains(event.target) || except(event))
-                    return;
-
-                handler(event);
-            };
-
-            document.addEventListener('mousedown', listener);
-            document.addEventListener('touchstart', listener);
-
-            return () => {
-                document.removeEventListener('mousedown', listener);
-                document.removeEventListener('touchstart', listener);
-            };
-        }, [ref, handler, except]);
-}

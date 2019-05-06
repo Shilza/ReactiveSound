@@ -10,8 +10,8 @@ const App = () => (
         <Switch>
             {
                 routes.map(
-                    ({exact, path, component}, index) =>
-                    <Route key={index} exact={exact} path={path} component={component}/>
+                    ({exact, path, component}) =>
+                    <Route key={path} exact={exact} path={path} component={component}/>
                 )
             }
             <Route component={NoMatch}/>

@@ -1,3 +1,4 @@
+@import '../../../../styles/utils.module';
 
 .container {
   height: 70px;
@@ -33,7 +34,7 @@
   left: 0;
   top: 0;
   height: 70px;
-  background-color: #506f43;
+  background-color: color('activeTimeline');
   transition: 170ms;
   transition-timing-function: ease-out;
 }

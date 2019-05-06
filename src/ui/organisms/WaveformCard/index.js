@@ -1,14 +1,15 @@
 import React, {useEffect} from "react";
 import styles from './styles.module.scss';
-import {TrackCard} from "../../../features/search/molecules/index";
-import {fetchWaveform} from "../../../features/search/actionCreators/index";
+import {TrackCard} from "../../../features/search/organisms";
 import {connect} from "react-redux";
+import {fetchWaveform} from "../../../features/common/actionCreators";
 
-const WaveformCard = ({id, dispatch, title, user, artwork_url, duration, likes_count, playback_count, waveform}) => {
+const WaveformCard = ({id, title, user, artwork_url, duration, likes_count, playback_count, waveform, dispatch}) => {
 
     useEffect(() => {
+        // If waveform has not loaded yet
         if (Object.is(waveform, undefined))
-            dispatch(fetchWaveform(id));
+            dispatch(fetchWaveform(id)); // Load waveform
     }, [id, waveform, dispatch]);
 
     return (

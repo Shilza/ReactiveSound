@@ -18,14 +18,18 @@ const Search = ({match: {params}, dispatch, loading, nextPage, tracks}) => {
     return (
         <CommonContent>
             <SubHeader section='Search Results' location={params.query}/>
-            <AdaptiveTracks loading={loading} fetchNext={fetchNext} hasMore={typeof nextPage === 'string'} tracks={tracks}/>
+            <AdaptiveTracks loading={loading}
+                            fetchNext={fetchNext}
+                            hasMore={typeof nextPage === 'string'}
+                            tracks={tracks}
+            />
         </CommonContent>
     );
 };
 
 export default connect(state => ({
-    error: state.search.search.error,
-    loading: state.search.search.loading,
-    tracks: state.search.search.tracks,
-    nextPage: state.search.search.nextPage
+    error: state.search.error,
+    loading: state.search.loading,
+    tracks: state.search.tracks,
+    nextPage: state.search.nextPage
 }))(Search);

@@ -1,5 +1,5 @@
-import {CommonContent} from "../../common/";
 import React, {useCallback, useEffect} from "react";
+import {CommonContent} from "../../common/";
 import {SubHeader} from "../organisms";
 import {Tracks} from "../templates";
 import {connect} from "react-redux";
@@ -20,10 +20,9 @@ const Favorites = ({dispatch, tracks, loading, nextPage}) => {
         <CommonContent>
             <SubHeader section='Spotlight' location='Featured Tracks'/>
             {
-                loading ?
-                    <Loader/>
-                    :
-                    <Tracks hasMore={typeof nextPage === 'string'} fetchNext={fetchNext} tracks={tracks}/>
+                loading
+                    ? <Loader/>
+                    : <Tracks hasMore={typeof nextPage === 'string'} fetchNext={fetchNext} tracks={tracks}/>
             }
         </CommonContent>
     );

@@ -1,6 +1,7 @@
 import * as React from "react";
 import hoistNonReactStatics from 'hoist-non-react-statics';
 import {Loader} from "../Loader";
+import {getDisplayName} from "../../utils";
 
 export const withLoader = WrappedComponent => {
     const LoadingScreen = ({loading, ...props}) => {
@@ -17,14 +18,9 @@ export const withLoader = WrappedComponent => {
     hoistNonReactStatics(LoadingScreen, WrappedComponent);
 
     LoadingScreen.displayName = `WithLoader(${getDisplayName(
-        WrappedComponent
+        WrappedComponent, "Loader"
     )})`;
 
     return LoadingScreen;
 };
 
-function getDisplayName(WrappedComponent) {
-    return (
-        WrappedComponent.displayName || WrappedComponent.name || "Loader"
-    );
-}

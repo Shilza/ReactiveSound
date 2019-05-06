@@ -21,7 +21,11 @@ export const Page = ({nextPage, dispatch, id, loading, tracks, tracksFethcer, tr
             <SubHeader location={user && user.username}>
                 <Stats loading={true} user={user}/>
             </SubHeader>
-            <AdaptiveTracks loading={loading} hasMore={typeof nextPage === 'string'} fetchNext={fetchNext} tracks={tracks}/>
+            <AdaptiveTracks loading={loading}
+                            hasMore={typeof nextPage === 'string'}
+                            fetchNext={fetchNext}
+                            tracks={tracks}
+            />
         </CommonContent>
     );
 };

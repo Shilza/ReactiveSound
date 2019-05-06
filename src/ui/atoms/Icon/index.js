@@ -142,8 +142,8 @@ export const Icon = ({
         focusable='false'
         role='img'
         fill={fill}
-        {...props}
         xmlns='http://www.w3.org/2000/svg'
+        {...props}
     >
         {getIconPath(name)}
     </svg>

@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import {Button} from "../../../../ui/atoms";
 
 export const Navigation = ({onSearch}) => (
-    <nav style={styles.conainer}>
+    <nav className={styles.container}>
         <ul className={styles.iconsList}>
             <li>
                 <Button onClick={onSearch} id='searchButton'>

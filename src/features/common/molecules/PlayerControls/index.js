@@ -11,15 +11,17 @@ const PlayerControls = withRouter(({player, trackIntervalId, location, dispatch}
         if (player)
             player.isPlaying() ? dispatch(pauseTrack()) : dispatch(playTrack());
     }, [player, dispatch]);
-    let isPlay = !Object.is(trackIntervalId, null);
 
     const onNext = () => {
+        // Pass a location prop that there was a selection from the appropriate storage
         dispatch(fetchNext(location.pathname));
     };
 
     const onPrevious = () => {
         dispatch(fetchPrevious(location.pathname));
     };
+
+    let isPlay = !Object.is(trackIntervalId, null);
 
     return (
         <div className={styles.container}>
