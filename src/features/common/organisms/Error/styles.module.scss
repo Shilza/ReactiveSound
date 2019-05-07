@@ -1,0 +1,40 @@
+@import '../../../../styles/utils.module';
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: text('secondary');
+  width: 300px;
+  margin: 0 auto;
+  animation: appear 600ms ease-out;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.button {
+  background: transparent;
+  color: text('secondary');
+  margin: 25px 0;
+  padding: 5px 10px 8px 10px;
+  border: 1px solid color('secondary');
+  outline: none;
+  cursor: pointer;
+  animation: border 1.5s ease-in 0s infinite alternate;
+}
+
+@keyframes border {
+  from {
+    border-color: color('secondary');
+  }
+  to {
+    border-color: #ffffff;
+  }
+}
