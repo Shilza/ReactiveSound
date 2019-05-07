@@ -25,18 +25,18 @@ const PlayerControls = withRouter(({player, trackIntervalId, location, dispatch}
 
     return (
         <div className={styles.container}>
-            <Button onClick={onPrevious}>
+            <Button onClick={onPrevious} aria-label='Previous track'>
                 <Icon name='previous' fill='#4d4e4f'/>
             </Button>
-            <Button onClick={onPlay}>
+            <Button onClick={onPlay} aria-label={isPlay ? 'Pause' : 'Play'} >
                 {
                     isPlay ?
-                        <Icon name='pause' viewBox='0 0 420 420' fill='#4d4e4f'/>
+                        <Icon name='pause' viewBox='0 0 360 360' fill='#4d4e4f'/>
                         :
                         <Icon name='play' viewBox='0 0 420 420' fill='#4d4e4f'/>
                 }
             </Button>
-            <Button onClick={onNext}>
+            <Button onClick={onNext} aria-label='Next track'>
                 <Icon name='next' fill='#4d4e4f'/>
             </Button>
         </div>
