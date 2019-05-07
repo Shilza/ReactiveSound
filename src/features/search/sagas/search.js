@@ -1,5 +1,5 @@
 import {FETCHED_SEARCH_TRACKS, FETCHED_SEARCH_TRACKS_BY_PAGE} from "../actionTypes";
-import {call, put, select, takeLatest} from "redux-saga/effects";
+import {call, put, select, fork, take} from "redux-saga/effects";
 import SC from "soundcloud";
 import {
     requestSearchTracks,
@@ -10,11 +10,17 @@ import {
 import {getLastQuery, getSearchTrackNextPage} from "../selectors";
 
 export function* watchFetchSearchTracks() {
-    yield takeLatest(FETCHED_SEARCH_TRACKS, fetchSearchTracksAsync);
+    while (true) {
+        const action = yield take(FETCHED_SEARCH_TRACKS);
+        yield fork(fetchSearchTracksAsync, action);
+    }
 }
 
 export function* watchFetchSearchTracksByPage() {
-    yield takeLatest(FETCHED_SEARCH_TRACKS_BY_PAGE, fetchSearchTracksByPageAsync);
+    while (true) {
+        const action = yield take(FETCHED_SEARCH_TRACKS_BY_PAGE);
+        yield fork(fetchSearchTracksByPageAsync, action);
+    }
 }
 
 function* fetchSearchTracksByPageAsync() {

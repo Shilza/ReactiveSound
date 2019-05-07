@@ -1,15 +1,21 @@
 import {FETCHED_FAVORITE_TRACKS, FETCHED_FAVORITE_TRACKS_BY_PAGE} from "../actionTypes";
-import {put, call, select, takeLatest} from "redux-saga/effects";
+import {call, fork, put, select, take} from "redux-saga/effects";
 import {requestFavoriteTracks, requestFavoriteTracksError, requestFavoriteTracksSuccess} from "../actionCreators";
 import SC from "soundcloud";
 import {getFavoriteTracksNextPage} from "../selectos";
 
 export function* watchFetchFavoriteTracks() {
-    yield takeLatest(FETCHED_FAVORITE_TRACKS, fetchFavoriteTracksAsync);
+    while(true) {
+        const action = yield take(FETCHED_FAVORITE_TRACKS);
+        yield fork(fetchFavoriteTracksAsync, action);
+    }
 }
 
 export function* watchFetchFavoriteTracksByPage() {
-    yield takeLatest(FETCHED_FAVORITE_TRACKS_BY_PAGE, fetchFavoriteTracksByPageAsync);
+    while(true) {
+        const action = yield take(FETCHED_FAVORITE_TRACKS_BY_PAGE);
+        yield fork(fetchFavoriteTracksByPageAsync, action);
+    }
 }
 
 function* fetchFavoriteTracksByPageAsync() {

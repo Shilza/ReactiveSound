@@ -1,4 +1,4 @@
-import {call, put, select, takeLatest} from "redux-saga/effects";
+import {call, put, select, spawn, take} from "redux-saga/effects";
 import SC from "soundcloud";
 import {
     requestUsersLikedTracksError,
@@ -11,11 +11,17 @@ import {FETCHED_USERS_TRACKS, FETCHED_USERS_TRACKS_BY_PAGE} from "../actionTypes
 import {getCountOfUsersTracks, getCurrentUserId, getUsersTracksNextPage} from "../selectors";
 
 export function* watchFetchUsersTracks() {
-    yield takeLatest(FETCHED_USERS_TRACKS, fetchUsersTracksAsync);
+    while(true) {
+        const action = yield take(FETCHED_USERS_TRACKS);
+        yield spawn(fetchUsersTracksAsync, action);
+    }
 }
 
 export function* watchFetchUsersTracksByPage() {
-    yield takeLatest(FETCHED_USERS_TRACKS_BY_PAGE, fetchUsersTrackByPagesAsync);
+    while(true) {
+        const action = yield take(FETCHED_USERS_TRACKS_BY_PAGE);
+        yield spawn(fetchUsersTrackByPagesAsync, action);
+    }
 }
 
 function* fetchUsersTrackByPagesAsync() {

@@ -1,5 +1,5 @@
 import {FETCHED_USER} from "../actionTypes";
-import {call, put, select, takeLatest} from "redux-saga/effects";
+import {call, put, select, fork, take} from "redux-saga/effects";
 import SC from "soundcloud";
 import {
     requestUser,
@@ -9,7 +9,10 @@ import {
 import {getCurrentUserId} from "../selectors";
 
 export function* watchFetchUser() {
-    yield takeLatest(FETCHED_USER, fetchUserAsync);
+    while(true) {
+        const action = yield take(FETCHED_USER);
+        yield fork(fetchUserAsync, action);
+    }
 }
 
 function* fetchUserAsync({payload: id}) {
