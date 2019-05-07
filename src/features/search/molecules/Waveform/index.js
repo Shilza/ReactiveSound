@@ -1,7 +1,7 @@
 import styles from './styles.module.scss';
 import React, {useEffect, useRef} from "react";
 import {withLoader} from "../../../common/organisms";
-import {withTimeLine} from "../../../common/atoms/wthTimeLine";
+import {withTimeLine} from "../../../common/atoms";
 
 export const Waveform = ({id, waveform}) => {
 

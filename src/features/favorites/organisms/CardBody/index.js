@@ -12,7 +12,7 @@ export const CardBody = ({currentTrackId,userId,  src, id, link, username, title
         </div>
         <div className={styles.info}>
             <Link to={`/users/${userId}/tracks`} className={styles.username}>{username}</Link>
-            <span className={styles.title}>{title}</span>
+            <span className={styles.title} title={title}>{title}</span>
             <CardActions id={id} duration={duration} link={link} title={title}/>
         </div>
     </>

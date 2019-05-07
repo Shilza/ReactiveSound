@@ -1,11 +1,10 @@
 import React, {useCallback, useEffect} from "react";
 import {CommonContent} from "../../common/templates";
-import {SubHeader} from "../../favorites/organisms/SubHeader";
 import {AdaptiveTracks} from "../../../ui/templates";
 import {Stats} from "../organisms";
 import {fetchUser} from "../actionCreators";
 
-export const Page = ({nextPage, dispatch, id, loading, tracks, tracksFethcer, tracksFethcerByPage, user}) => {
+export const Page = ({nextPage, dispatch, id, userLoading, tracksLoading, error, tracks, tracksFethcer, tracksFethcerByPage, user}) => {
 
     useEffect(() => {
         dispatch(fetchUser(id));
@@ -17,11 +16,13 @@ export const Page = ({nextPage, dispatch, id, loading, tracks, tracksFethcer, tr
     }, [id, tracksFethcerByPage, dispatch]);
 
     return (
-        <CommonContent>
-            <SubHeader location={user && user.username}>
-                <Stats loading={true} user={user}/>
-            </SubHeader>
-            <AdaptiveTracks loading={loading}
+        <CommonContent
+            location={user && user.username}
+            subHeaderChild={<Stats loading={userLoading} user={user}/>}
+            loading={tracksLoading}
+            error={error}
+        >
+            <AdaptiveTracks
                             hasMore={typeof nextPage === 'string'}
                             fetchNext={fetchNext}
                             tracks={tracks}

@@ -1,4 +1,4 @@
-import {REQUESTED_USER_SUCCEED} from "../actionTypes";
+import {REQUESTED_USER, REQUESTED_USER_SUCCEED} from "../actionTypes";
 
 const initialState = {
     data: undefined,
@@ -8,6 +8,12 @@ const initialState = {
 
 export const user = (state = initialState, {type, payload = null}) => {
     switch (type) {
+        case REQUESTED_USER:
+            return {
+                ...state,
+                loading: true,
+                error: false
+            };
         case REQUESTED_USER_SUCCEED:
             return {
                 data: payload,

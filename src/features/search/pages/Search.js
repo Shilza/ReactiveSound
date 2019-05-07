@@ -1,11 +1,10 @@
 import {connect} from "react-redux";
 import React, {useCallback, useEffect} from "react";
 import {CommonContent} from "../../common/templates";
-import {SubHeader} from "../../favorites/organisms";
 import {fetchSearchTracks, fetchSearchTracksByPage} from "../actionCreators";
 import {AdaptiveTracks} from "../../../ui/templates";
 
-const Search = ({match: {params}, dispatch, loading, nextPage, tracks}) => {
+const Search = ({match: {params}, dispatch, error, loading, nextPage, tracks}) => {
 
     useEffect(() => {
         dispatch(fetchSearchTracks(params.query))
@@ -16,12 +15,16 @@ const Search = ({match: {params}, dispatch, loading, nextPage, tracks}) => {
     }, [dispatch]);
 
     return (
-        <CommonContent>
-            <SubHeader section='Search Results' location={params.query}/>
-            <AdaptiveTracks loading={loading}
-                            fetchNext={fetchNext}
-                            hasMore={typeof nextPage === 'string'}
-                            tracks={tracks}
+        <CommonContent
+            section='Search Results'
+            location={params.query}
+            loading={loading}
+            error={error}
+        >
+            <AdaptiveTracks
+                fetchNext={fetchNext}
+                hasMore={typeof nextPage === 'string'}
+                tracks={tracks}
             />
         </CommonContent>
     );
