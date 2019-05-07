@@ -1,6 +1,7 @@
+@import '../../../../styles/utils.module';
 
 .container {
-  max-width: 960px;
+  max-width: constant('maxWidth');
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;

@@ -1,8 +1,10 @@
+@import '../../../styles/utils.module';
+
 
 .card {
-  width: 220px;
-  padding: 20px 10px;
-  margin: 0 auto;
+  width: 240px;
+  margin: 20px auto;
+  box-shadow: 5px 4px 8px darken(color('secondary'), 1%);
 }
 
 @media screen and (max-width: 1020px){

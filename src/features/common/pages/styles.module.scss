@@ -1,3 +1,4 @@
+@import '../../../styles/utils.module';
 
 .container {
   position: absolute;
@@ -7,20 +8,20 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: #d6d6d6;
+  color: text('secondary');
   width: 300px;
 }
 
 .link {
   padding: 5px 10px 8px 10px;
-  border: 1px solid #1d1e1f;
+  border: 1px solid color('secondary');
   margin: 25px 0;
   animation: border 1.5s ease-in 0s infinite alternate;
 }
 
 @keyframes border {
   from {
-    border-color: #1d1e1f;;
+    border-color: color('secondary');
   }
   to {
     border-color: #ffffff;

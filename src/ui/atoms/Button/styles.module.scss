@@ -1,4 +1,6 @@
 
+$hoverColor: #aaabac;
+
 .button {
   border: none;
   outline: none;
@@ -22,7 +24,7 @@
   }
 
   &:hover svg {
-    stroke: #aaabac;
-    fill: #aaabac;
+    stroke: $hoverColor;
+    fill: $hoverColor;
   }
 }

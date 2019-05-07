@@ -1,3 +1,4 @@
+@import '../../../../styles/utils.module';
 
 .cover {
   width: 100%;
@@ -22,7 +23,7 @@
   display: flex;
   flex-direction: column;
   height: 120px;
-  background-color: #1d1e1f;
+  background-color: color('secondary');
   padding: 15px;
   border-bottom: 1px solid hsla(0, 0%, 100%, .1);
 }
@@ -32,6 +33,9 @@
 }
 
 .title {
-  color: #bdbebf;
-  margin-top: 2px;
+  color: text('title');
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 35px;
+  margin-top: 5px;
 }

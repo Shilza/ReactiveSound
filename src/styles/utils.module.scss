@@ -1,6 +1,18 @@
-
 @import 'colors.module';
+@import 'constants.module';
 
 @function color($key: 'primary') {
   @return map-get($colors, $key);
+}
+
+@function timeLine($key: 'active') {
+  @return map-get($timeLine, $key);
+}
+
+@function text($key: 'primary') {
+  @return map-get($text, $key);
+}
+
+@function constant($key) {
+  @return map-get($constants, $key);
 }

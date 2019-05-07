@@ -1,3 +1,4 @@
+@import '../../../../styles/utils.module';
 
 .unit {
   display: flex;
@@ -7,7 +8,7 @@
 
 %label {
   padding-bottom: 8px;
-  color: #808182;
+  color: text('accent');
 }
 
 .labelActive {
@@ -44,5 +45,5 @@
   padding-top: 5px;
   font-size: 1.5rem;
   line-height: 1.4285714286;
-  color: #aaabac;
+  color: text('primary');
 }

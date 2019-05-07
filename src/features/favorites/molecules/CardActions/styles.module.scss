@@ -1,13 +1,19 @@
+@import '../../../../styles/utils.module';
 
 .container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-top: auto;
-  color: #4d4e4f;
+  margin-left: -10px;
+  color: color('accent');
 }
 
 .playContainer {
   display: flex;
   align-items: center;
+}
+
+.duration {
+  margin-left: 5px;
 }

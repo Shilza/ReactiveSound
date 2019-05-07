@@ -12,7 +12,7 @@
   top: 0;
   left: 0;
   height: 4px;
-  background-color: color('activeTimeline');
+  background-color: timeLine('active');
   transition: 170ms;
   transition-timing-function: ease-out;
 }

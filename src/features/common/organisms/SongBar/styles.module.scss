@@ -1,3 +1,4 @@
+@import '../../../../styles/utils.module';
 
 .songBar {
   position: fixed;
@@ -7,7 +8,7 @@
   top: 0;
   transform: translateY(calc(100vh - 60px));
   background-color: #2d2e2f;
-  color: #aaabac;
+  color: text('primary');
   animation: appear 200ms ease-out;
 }
 
@@ -21,7 +22,7 @@
 }
 
 .container {
-  max-width: 970px;
+  max-width: constant('maxWidth');
   width: 100%;
   height: 100%;
   display: flex;
@@ -41,6 +42,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
-  max-width: 40%;
+  max-width: 35%;
   overflow: hidden;
 }

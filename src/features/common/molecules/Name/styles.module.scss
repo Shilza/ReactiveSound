@@ -1,3 +1,4 @@
+@import '../../../../styles/utils.module';
 
 .title {
   margin: 0;
@@ -5,5 +6,5 @@
 
 .link {
   font-size: 1.3rem;
-  color: #aaabac;
+  color: text('primary');
 }
