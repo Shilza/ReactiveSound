@@ -1,9 +1,16 @@
-import {Main} from "../../../ui/templates";
 import React from "react";
-import {Header} from "../organisms";
+import {Header, SubHeader} from "../organisms";
+import {Main} from "../../../ui/templates";
 
-export const CommonContent = ({ children }) => (
-    <Main header={<Header/>}>
-        {children}
-    </Main>
+export const CommonContent = ({section, location, error, loading, children, subHeaderChild}) => (
+    <>
+        <Header/>
+        {
+            (section || location) &&
+            <SubHeader section={section} location={location}>
+                {subHeaderChild}
+            </SubHeader>
+        }
+        <Main loading={loading} error={error}>{children}</Main>
+    </>
 );
