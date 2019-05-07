@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "aos": "^2.3.4",
     "hoist-non-react-statics": "^3.3.0",
     "node-sass": "^4.12.0",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
+    "react-countup": "^4.1.3",
     "react-dom": "^16.8.6",
     "react-infinite-scroller": "^1.2.4",
     "react-redux": "^7.0.2",

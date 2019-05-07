@@ -4,6 +4,7 @@ import './styles/index.module.scss';
 import App from './App';
 import 'normalize.css';
 import './styles/reset.css';
+import '../node_modules/aos/dist/aos.css';
 import store from './store';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from "react-redux";
