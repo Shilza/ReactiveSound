@@ -1,17 +1,12 @@
 import {fetchTrack, pauseTrack, playTrack} from "../../actionCreators";
-import {useCallback, useEffect} from "react";
+import React, {useCallback} from "react";
 import hoistNonReactStatics from "hoist-non-react-statics";
-import React from "react";
 import {connect} from "react-redux";
 import {getDisplayName} from "../../utils";
 
 export const withPlayer = WrappedComponent => {
 
     const PlayerWrapper = connect(mapStateToProps)(({dispatch, player, currentTrackId, trackIntervalId, id, ...props}) => {
-        useEffect(() => {
-            if (player && currentTrackId === id)
-                dispatch(playTrack());
-        }, [player, dispatch, currentTrackId, id]);
 
         const onPlay = useCallback(() => {
             if (player && currentTrackId === id)
@@ -22,12 +17,12 @@ export const withPlayer = WrappedComponent => {
 
         let isPlay = !Object.is(trackIntervalId, null) && currentTrackId === id;
 
-        return <WrappedComponent {...props} onPlay={onPlay} isPlay={isPlay}/>
+        return <WrappedComponent {...props} onPlay={onPlay} isPlay={isPlay}/>;
     });
 
     hoistNonReactStatics(PlayerWrapper, WrappedComponent);
 
-    PlayerWrapper.displayName = `PlayerWrapper(${getDisplayName(
+    PlayerWrapper.displayName = `withPlayer(${getDisplayName(
         WrappedComponent, "PlayerWrapper"
     )})`;
 
