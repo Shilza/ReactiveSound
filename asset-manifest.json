@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/reactivesound/static/css/main.cf810af2.chunk.css",
-    "main.js": "/reactivesound/static/js/main.ae4122c6.chunk.js",
-    "main.js.map": "/reactivesound/static/js/main.ae4122c6.chunk.js.map",
-    "runtime~main.js": "/reactivesound/static/js/runtime~main.cbd96433.js",
-    "runtime~main.js.map": "/reactivesound/static/js/runtime~main.cbd96433.js.map",
-    "static/css/2.06e05624.chunk.css": "/reactivesound/static/css/2.06e05624.chunk.css",
-    "static/js/2.9506686d.chunk.js": "/reactivesound/static/js/2.9506686d.chunk.js",
-    "static/js/2.9506686d.chunk.js.map": "/reactivesound/static/js/2.9506686d.chunk.js.map",
-    "index.html": "/reactivesound/index.html",
-    "precache-manifest.e0d918cc43213d4030080a921a4b3670.js": "/reactivesound/precache-manifest.e0d918cc43213d4030080a921a4b3670.js",
-    "service-worker.js": "/reactivesound/service-worker.js",
-    "static/css/2.06e05624.chunk.css.map": "/reactivesound/static/css/2.06e05624.chunk.css.map",
-    "static/css/main.cf810af2.chunk.css.map": "/reactivesound/static/css/main.cf810af2.chunk.css.map"
+    "main.css": "/ReactiveSound/static/css/main.cf810af2.chunk.css",
+    "main.js": "/ReactiveSound/static/js/main.3e4d5359.chunk.js",
+    "main.js.map": "/ReactiveSound/static/js/main.3e4d5359.chunk.js.map",
+    "runtime~main.js": "/ReactiveSound/static/js/runtime~main.71e38059.js",
+    "runtime~main.js.map": "/ReactiveSound/static/js/runtime~main.71e38059.js.map",
+    "static/css/2.06e05624.chunk.css": "/ReactiveSound/static/css/2.06e05624.chunk.css",
+    "static/js/2.9506686d.chunk.js": "/ReactiveSound/static/js/2.9506686d.chunk.js",
+    "static/js/2.9506686d.chunk.js.map": "/ReactiveSound/static/js/2.9506686d.chunk.js.map",
+    "index.html": "/ReactiveSound/index.html",
+    "precache-manifest.210c441e7b0fe4e10760f913e543b162.js": "/ReactiveSound/precache-manifest.210c441e7b0fe4e10760f913e543b162.js",
+    "service-worker.js": "/ReactiveSound/service-worker.js",
+    "static/css/2.06e05624.chunk.css.map": "/ReactiveSound/static/css/2.06e05624.chunk.css.map",
+    "static/css/main.cf810af2.chunk.css.map": "/ReactiveSound/static/css/main.cf810af2.chunk.css.map"
   }
 }
