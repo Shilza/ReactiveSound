@@ -2,9 +2,11 @@
 
 .container {
   max-width: constant('maxWidth');
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 15px 40px 15px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, auto));
+  grid-gap: 1rem;
+  justify-content: space-evenly;
 }
