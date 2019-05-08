@@ -1,4 +1,4 @@
-import {call, put, select, spawn, take} from "redux-saga/effects";
+import {call, put, select, fork, take} from "redux-saga/effects";
 import SC from "soundcloud";
 import {
     requestUsersLikedTracksError,
@@ -13,14 +13,14 @@ import {getCountOfUsersTracks, getCurrentUserId, getUsersTracksNextPage} from ".
 export function* watchFetchUsersTracks() {
     while(true) {
         const action = yield take(FETCHED_USERS_TRACKS);
-        yield spawn(fetchUsersTracksAsync, action);
+        yield fork(fetchUsersTracksAsync, action);
     }
 }
 
 export function* watchFetchUsersTracksByPage() {
     while(true) {
         const action = yield take(FETCHED_USERS_TRACKS_BY_PAGE);
-        yield spawn(fetchUsersTrackByPagesAsync, action);
+        yield fork(fetchUsersTrackByPagesAsync, action);
     }
 }
 

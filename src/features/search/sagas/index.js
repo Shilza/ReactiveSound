@@ -1,9 +1,7 @@
-import { all } from 'redux-saga/effects';
 import {watchFetchSearchTracks, watchFetchSearchTracksByPage} from "./search";
+import {spawn} from "redux-saga/effects";
 
-export function* searchSaga() {
-    yield all([
-        watchFetchSearchTracks(),
-        watchFetchSearchTracksByPage(),
-    ])
-}
+export const searchSagas = [
+    spawn(watchFetchSearchTracks),
+    spawn(watchFetchSearchTracksByPage)
+];

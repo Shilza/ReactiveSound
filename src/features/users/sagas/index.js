@@ -1,14 +1,12 @@
-import { all } from 'redux-saga/effects';
 import {watchFetchUsersTracks, watchFetchUsersTracksByPage} from "./tracks";
 import {watchFetchUser} from "./user";
 import {watchFetchLikedTracksByPage, watchFetchUsersLikedTracks} from "./likedTracks";
+import {spawn} from "redux-saga/effects";
 
-export function* usersSaga() {
-    yield all([
-        watchFetchUsersTracks(),
-        watchFetchUsersTracksByPage(),
-        watchFetchUsersLikedTracks(),
-        watchFetchLikedTracksByPage(),
-        watchFetchUser()
-    ])
-}
+export const usersSagas = [
+    spawn(watchFetchUsersTracks),
+    spawn(watchFetchUsersTracksByPage),
+    spawn(watchFetchUsersLikedTracks),
+    spawn(watchFetchLikedTracksByPage),
+    spawn(watchFetchUser)
+];

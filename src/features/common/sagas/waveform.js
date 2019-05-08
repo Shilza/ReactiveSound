@@ -1,4 +1,4 @@
-import {call, put, select, spawn, take} from "redux-saga/effects";
+import {call, fork, put, select, take} from "redux-saga/effects";
 import {getWaveformTracks, getWaveformUrlById} from "../../search/selectors/index";
 import {FETCHED_WAVEFORM_TRACKS} from "../actionTypes";
 import {requestWaveformSuccess} from "../actionCreators";
@@ -6,7 +6,7 @@ import {requestWaveformSuccess} from "../actionCreators";
 export function* watchFetchWaveform() {
     while (true) {
         const action = yield take(FETCHED_WAVEFORM_TRACKS);
-        yield spawn(fetchWaveformAsync, action);
+        yield fork(fetchWaveformAsync, action);
     }
 }
 

@@ -1,9 +1,7 @@
-import { all } from 'redux-saga/effects';
+import {spawn} from 'redux-saga/effects';
 import {watchFetchFavoriteTracks, watchFetchFavoriteTracksByPage} from "./tracks";
 
-export function* favoritesSaga() {
-    yield all([
-        watchFetchFavoriteTracks(),
-        watchFetchFavoriteTracksByPage()
-    ])
-}
+export const favoritesSagas = [
+    spawn(watchFetchFavoriteTracks),
+    spawn(watchFetchFavoriteTracksByPage)
+];
