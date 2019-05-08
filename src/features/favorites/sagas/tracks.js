@@ -33,7 +33,7 @@ function* fetchFavoriteTracksAsync() {
     try {
         yield put(requestFavoriteTracks());
         const data = yield call(() => SC.get('/users/185676792/favorites', {
-            limit: 20,
+            limit: 22,
             linked_partitioning: 1
         }).then(tracks => tracks));
         yield put(requestFavoriteTracksSuccess(data));
