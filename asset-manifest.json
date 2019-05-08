@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/reactivesound/static/css/main.cf810af2.chunk.css",
+    "main.js": "/reactivesound/static/js/main.ae4122c6.chunk.js",
+    "main.js.map": "/reactivesound/static/js/main.ae4122c6.chunk.js.map",
+    "runtime~main.js": "/reactivesound/static/js/runtime~main.cbd96433.js",
+    "runtime~main.js.map": "/reactivesound/static/js/runtime~main.cbd96433.js.map",
+    "static/css/2.06e05624.chunk.css": "/reactivesound/static/css/2.06e05624.chunk.css",
+    "static/js/2.9506686d.chunk.js": "/reactivesound/static/js/2.9506686d.chunk.js",
+    "static/js/2.9506686d.chunk.js.map": "/reactivesound/static/js/2.9506686d.chunk.js.map",
+    "index.html": "/reactivesound/index.html",
+    "precache-manifest.e0d918cc43213d4030080a921a4b3670.js": "/reactivesound/precache-manifest.e0d918cc43213d4030080a921a4b3670.js",
+    "service-worker.js": "/reactivesound/service-worker.js",
+    "static/css/2.06e05624.chunk.css.map": "/reactivesound/static/css/2.06e05624.chunk.css.map",
+    "static/css/main.cf810af2.chunk.css.map": "/reactivesound/static/css/main.cf810af2.chunk.css.map"
+  }
+}
