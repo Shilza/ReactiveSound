@@ -6,7 +6,7 @@ import {NoMatch} from "./features/common/";
 import {SongBar} from './features/common/organisms';
 
 const App = () => (
-    <Router>
+    <Router basename='ReactiveSound'>
         <Switch>
             {
                 routes.map(
