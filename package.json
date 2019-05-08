@@ -24,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,5 +42,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shilza/ReactiveSound"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "Shilza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shilza/ReactiveSound/issues"
+  },
+  "homepage": "https://shilza.github.io/reactivesound"
 }
