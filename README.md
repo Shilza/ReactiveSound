@@ -1,5 +1,5 @@
 
-<img align="left" alt='Reactive sound logo' width="58" height="58" src="https://github.com/Shilza/ReactiveSound/blob/master/public/logo2.png" />
+<img align="right" alt='Reactive sound logo' width="80" height="80" src="https://github.com/Shilza/ReactiveSound/blob/master/public/logo2.png" />
 
 # Reactive Sound
 
