@@ -1,3 +1,5 @@
+<img src="https://github.com/Shilza/ReactiveSound/blob/master/public/logo2.png" alt="logo" height="48" align="left" />
+
 # Reactive Sound
 SoundCloud API client built with React. View [Demo](https://shilza.github.io/ReactiveSound)
 
