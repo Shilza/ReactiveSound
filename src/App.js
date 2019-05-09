@@ -14,7 +14,7 @@ const App = () => (
                         <Route key={path} exact={exact} path={path} component={component}/>
                 )
             }
-            <Route component={NoMatch}/>
+            <Route path='*' component={NoMatch}/>
         </Switch>
         <SongBar/>
     </Router>
