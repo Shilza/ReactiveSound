@@ -20,7 +20,7 @@ SoundCloud API client built with React. View [Demo](https://shilza.github.io/Rea
 * Redux
 * Redux-saga
 * SCSS-modules
-* AOS
+* React-reveal
 
 # Install
 1. git clone https://github.com/Shilza/ReactiveSound
