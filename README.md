@@ -1,6 +1,8 @@
-<img src="https://github.com/Shilza/ReactiveSound/blob/master/public/logo2.png" alt="logo" height="48" align="left" />
+
+<img align="left" alt='Reactive sound logo' width="48" height="48" src="https://github.com/Shilza/ReactiveSound/blob/master/public/logo2.png" />
 
 # Reactive Sound
+
 SoundCloud API client built with React. View [Demo](https://shilza.github.io/ReactiveSound)
 
 ![Reacive Sound presentation](https://github.com/Shilza/ReactiveSound/blob/master/public/presentation.gif)
