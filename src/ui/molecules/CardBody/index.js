@@ -1,10 +1,10 @@
 import React from "react";
 import styles from './styles.module.scss';
-import {CardActions} from "../../molecules";
-import {TimeLine} from '../../../common/atoms'
+import {CardActions} from "../../../features/favorites/molecules/index";
+import {TimeLine} from '../../../features/common/atoms/index'
 import {Link} from "react-router-dom";
 
-export const CardBody = ({currentTrackId,userId,  src, id, link, username, title, cover, duration}) => (
+export const CardBody = ({currentTrackId, userId, src, id, link, username, title, cover, duration}) => (
     <>
         <div className={styles.imageContainer}>
             <img className={styles.cover} src={cover} alt='cover'/>
