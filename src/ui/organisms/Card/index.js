@@ -1,17 +1,20 @@
-import React, {useEffect} from "react";
-import AOS from 'aos';
+import React from "react";
 import styles from './styles.module.scss';
+import {CardBody} from "../../molecules/CardBody";
+import {Fade} from "react-reveal";
 
-export const Card = ({ children }) => {
-    useEffect(() => {
-        AOS.init({
-            duration: 1000
-        })
-    });
-
-    return (
-        <article className={styles.card} data-aos="fade-up">
-            {children}
+export const Card = React.memo(({item, currentTrackId}) => (
+    <Fade bottom>
+        <article className={styles.card}>
+            <CardBody id={item.id}
+                      title={item.title}
+                      userId={item.user.id}
+                      duration={item.duration}
+                      cover={item.artwork_url}
+                      username={item.user.username}
+                      currentTrackId={currentTrackId}
+                      link={item.user.permalink_url}
+            />
         </article>
-    );
-};
+    </Fade>
+));
