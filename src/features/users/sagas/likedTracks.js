@@ -1,4 +1,4 @@
-import {call, put, select, fork, take} from "redux-saga/effects";
+import {call, fork, put, select, take} from "redux-saga/effects";
 import SC from "soundcloud";
 import {
     requestUsersLikedTracks,
@@ -7,7 +7,7 @@ import {
     resetLikedTracks
 } from "../actionCreators";
 import {FETCHED_USERS_LIKED_TRACKS, FETCHED_USERS_LIKED_TRACKS_BY_PAGE} from "../actionTypes";
-import {getCountOfLikedTracks, getCurrentUserId, getLikedTracksNextPage} from "../selectors";
+import {getCountOfLikedTracks, getCurrentLikedTracksUserId, getLikedTracksNextPage} from "../selectors";
 
 export function* watchFetchUsersLikedTracks() {
     while (true) {
@@ -37,19 +37,17 @@ function* fetchLikedTracksByPageAsync() {
 function* fetchUsersLikedTracksAsync({payload: id}) {
     try {
         const countOfTracks = yield select(getCountOfLikedTracks);
-        const currentUserId = yield select(getCurrentUserId);
+        const currentUserId = yield select(getCurrentLikedTracksUserId);
 
         if (id !== currentUserId || countOfTracks === 0) {
             yield put(resetLikedTracks());
             yield put(requestUsersLikedTracks());
-            const data = yield call(() => {
-                    return SC.get(`/users/${id}/favorites`, {
+            const data = yield call(() => SC.get(`/users/${id}/favorites`, {
                         limit: 20,
                         linked_partitioning: 1
-                    }).then(tracks => tracks);
-                }
+                    }).then(tracks => tracks)
             );
-            yield put(requestUsersLikedTracksSuccess(data));
+            yield put(requestUsersLikedTracksSuccess({...data, userId: id}));
         }
     }
     catch (error) {

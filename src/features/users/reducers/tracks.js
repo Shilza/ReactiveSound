@@ -10,6 +10,7 @@ import {REQUESTED_WAVEFORM_SUCCEED} from "../../common/actionTypes";
 const initialState = {
     data: [],
     nextPage: undefined,
+    userId: undefined,
     loading: false,
     error: false
 };
@@ -26,6 +27,7 @@ export const tracks = (state = initialState, {type, payload = null}) => {
             return {
                 data: getUnique(state.data.concat(payload.collection.map(transformTrack))),
                 nextPage: payload.next_href,
+                userId: payload.userId,
                 loading: false,
                 error: false
             };

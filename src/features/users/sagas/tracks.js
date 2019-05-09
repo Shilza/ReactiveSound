@@ -1,4 +1,4 @@
-import {call, put, select, fork, take} from "redux-saga/effects";
+import {call, fork, put, select, take} from "redux-saga/effects";
 import SC from "soundcloud";
 import {
     requestUsersLikedTracksError,
@@ -8,17 +8,17 @@ import {
     resetUsersTracks
 } from "../actionCreators";
 import {FETCHED_USERS_TRACKS, FETCHED_USERS_TRACKS_BY_PAGE} from "../actionTypes";
-import {getCountOfUsersTracks, getCurrentUserId, getUsersTracksNextPage} from "../selectors";
+import {getCountOfUsersTracks, getCurrentUserTracksUserId, getUsersTracksNextPage} from "../selectors";
 
 export function* watchFetchUsersTracks() {
-    while(true) {
+    while (true) {
         const action = yield take(FETCHED_USERS_TRACKS);
         yield fork(fetchUsersTracksAsync, action);
     }
 }
 
 export function* watchFetchUsersTracksByPage() {
-    while(true) {
+    while (true) {
         const action = yield take(FETCHED_USERS_TRACKS_BY_PAGE);
         yield fork(fetchUsersTrackByPagesAsync, action);
     }
@@ -38,19 +38,17 @@ function* fetchUsersTrackByPagesAsync() {
 function* fetchUsersTracksAsync({payload: id}) {
     try {
         const countOfTracks = yield select(getCountOfUsersTracks);
-        const currentUserId = yield select(getCurrentUserId);
+        const currentUserId = yield select(getCurrentUserTracksUserId);
 
         if (id !== currentUserId || countOfTracks === 0) {
             yield put(resetUsersTracks());
             yield put(requestUsersTracks());
-            const data = yield call(() => {
-                    return SC.get(`/users/${id}/tracks`, {
-                        limit: 20,
-                        linked_partitioning: 1
-                    }).then(data => data);
-                }
+            const data = yield call(() => SC.get(`/users/${id}/tracks`, {
+                    limit: 20,
+                    linked_partitioning: 1
+                }).then(data => data)
             );
-            yield put(requestUsersTracksSuccess(data));
+            yield put(requestUsersTracksSuccess({...data, userId: id}));
         }
     }
     catch (error) {
