@@ -1,12 +1,15 @@
 @import '../../../../styles/utils.module';
 
 .songBar {
+  display: block;
   position: fixed;
+  bottom: -1px;
+  z-index: 100;
+  transform: translateZ(0);
+  box-shadow: 0 -2px 0 0 rgba(0, 0, 0, .1);
   height: 60px;
   width: 100%;
   left: 0;
-  top: 100%;
-  transform: translateY(-100%);
   background-color: #2d2e2f;
   color: text('primary');
   animation: appear 200ms ease-out;
@@ -14,10 +17,10 @@
 
 @keyframes appear {
   from {
-    transform: translateY(calc(-100% + 60px));
+    bottom: -80px;
   }
   to {
-    transform: translateY(-100%);
+    bottom: -10px;
   }
 }
 
