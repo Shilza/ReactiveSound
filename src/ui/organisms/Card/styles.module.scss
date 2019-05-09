@@ -1,33 +1,20 @@
 @import '../../../styles/utils.module';
 
-
 .card {
-  width: 240px;
+  width: 220px;
   margin: 20px auto;
   box-shadow: 5px 4px 8px darken(color('secondary'), 1%);
 }
 
-@media screen and (max-width: 1020px){
-  .card {
-    width: 260px;
-  }
-}
-
-@media screen and (max-width: 900px){
+@media screen and (max-width: 1020px) {
   .card {
     width: 220px;
   }
 }
 
-@media screen and (max-width: 780px){
-  .card {
-    width: 260px;
-  }
-}
-
-@media screen and (max-width: 610px){
+@media screen and (max-width: 720px) {
   .card {
     width: 90%;
-    max-width: 340px;
+    max-width: 300px;
   }
 }
