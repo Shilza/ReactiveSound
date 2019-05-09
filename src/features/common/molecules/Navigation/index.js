@@ -21,7 +21,7 @@ export const Navigation = ({onSearch}) => (
             <li>
                 <Button>
                     <a href='https://github.com/Shilza/ReactiveSound' rel='noopener noreferrer' target='_blank'>
-                        <Icon name='github' width='1.1em' height='1.1em' viewBox='0 0 500 500'/>
+                        <Icon name='github' width='1.1em' height='1.1em' viewBox='0 0 430 430'/>
                     </a>
                 </Button>
             </li>
