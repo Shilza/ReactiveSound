@@ -5,8 +5,8 @@
   height: 60px;
   width: 100%;
   left: 0;
-  top: 0;
-  transform: translateY(calc(100vh - 60px));
+  top: 100%;
+  transform: translateY(-100%);
   background-color: #2d2e2f;
   color: text('primary');
   animation: appear 200ms ease-out;
@@ -14,10 +14,10 @@
 
 @keyframes appear {
   from {
-    transform: translateY(100vh);
+    transform: translateY(calc(-100% + 60px));
   }
   to {
-    transform: translateY(calc(100vh - 60px));
+    transform: translateY(-100%);
   }
 }
 
