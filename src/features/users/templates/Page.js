@@ -4,7 +4,7 @@ import {AdaptiveTracks} from "../../../ui/templates";
 import {Stats} from "../organisms";
 import {fetchUser} from "../actionCreators";
 
-export const Page = ({nextPage, dispatch, id, tracksLoading, error, tracks, tracksFethcer, tracksFethcerByPage, user}) => {
+export const Page = ({nextPage, dispatch, id, userLoading, tracksLoading, error, tracks, tracksFethcer, tracksFethcerByPage, user}) => {
 
     useEffect(() => {
         dispatch(fetchUser(id));
@@ -18,7 +18,7 @@ export const Page = ({nextPage, dispatch, id, tracksLoading, error, tracks, trac
     return (
         <CommonContent
             location={user && user.username}
-            subHeaderChild={<Stats user={user}/>}
+            subHeaderChild={<Stats loading={userLoading} user={user} />}
             loading={tracksLoading}
             error={error}
         >
