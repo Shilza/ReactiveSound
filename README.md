@@ -15,7 +15,7 @@ SoundCloud API client built with React. View [Demo](https://shilza.github.io/Rea
 * Giving a nice mood :)
 
 # Stack
-* React (Create-React-App)
+* React
 * React-router
 * Redux
 * Redux-saga
