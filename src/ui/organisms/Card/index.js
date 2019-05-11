@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './styles.module.scss';
-import {CardBody} from "../../molecules/CardBody";
+import {CardBody} from "../CardBody";
 import {Fade} from "react-reveal";
 
 export const Card = React.memo(({item, currentTrackId}) => (

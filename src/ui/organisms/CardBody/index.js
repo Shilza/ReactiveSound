@@ -1,8 +1,8 @@
 import React from "react";
 import styles from './styles.module.scss';
-import {CardActions} from "../../../features/favorites/molecules/index";
 import {TimeLine} from '../../../features/common/atoms/index'
 import {Link} from "react-router-dom";
+import {CardActions} from "../../molecules/CardActions";
 
 export const CardBody = ({currentTrackId, userId, src, id, link, username, title, cover, duration}) => (
     <>
