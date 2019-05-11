@@ -7,7 +7,7 @@ export const Navigation = ({onSearch}) => (
     <nav className={styles.container}>
         <ul className={styles.iconsList}>
             <li>
-                <Button onClick={onSearch} id='searchButton'>
+                <Button onClick={onSearch} id='searchButton' data-testid='searchButton'>
                     <Icon id='searchIcon' name='search' width='1.1em' height='1.1em' viewBox='0 0 500 500'/>
                 </Button>
             </li>

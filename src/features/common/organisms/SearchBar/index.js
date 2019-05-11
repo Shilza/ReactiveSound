@@ -31,10 +31,14 @@ export const SearchBar = withRouter(({visible, hideBar, history}) => {
     };
 
     return (
-        <div ref={barRef} className={styles.searchBarLeave}>
+        <div ref={barRef} className={styles.searchBarLeave} data-testid='searchBar'>
             <form className={styles.barContainer} onSubmit={search}>
-                <input ref={inputRef} className={styles.searchInput} type='text' maxLength={60}
-                       placeholder='Search Tracks'/>
+                <input ref={inputRef}
+                       className={styles.searchInput}
+                       type='text'
+                       maxLength={60}
+                       placeholder='Search Tracks'
+                />
             </form>
         </div>
     );

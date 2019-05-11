@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import {PlayButton} from "../../../common/atoms";
 import {Button} from "../../../../ui/atoms";
 import {Link} from "react-router-dom";
+import {convertMsToString} from "../../../common/utils";
 
 const TrackCard = ({id, onPlay, userId, link, isPlay, duration, title, dispatch, username, likesCount, playbackCount, waveform}) => (
     <div className={styles.container}>
@@ -14,7 +15,7 @@ const TrackCard = ({id, onPlay, userId, link, isPlay, duration, title, dispatch,
         <div className={styles.title}>{title}</div>
         <Waveform id={id} waveform={waveform}/>
         <div className={styles.actions}>
-            <Action label={duration}>
+            <Action label={convertMsToString(duration)}>
                 <PlayButton id={id}/>
             </Action>
             <Action label={playbackCount}>
