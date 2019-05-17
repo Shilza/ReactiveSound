@@ -1,18 +1,24 @@
 @import '../../../../styles/utils.module';
 
+$transitionDuration: 170ms;
+
 .timeLine {
   position: absolute;
   height: 4px;
   width: 100%;
   background-color: #414a3e;
+  transition: $transitionDuration ease-out;
+
+  &:hover {
+    height: 6px;
+  }
 }
 
 .currentTime {
   position: absolute;
   top: 0;
   left: 0;
-  height: 4px;
+  height: 100%;
   background-color: timeLine('active');
-  transition: 170ms;
-  transition-timing-function: ease-out;
+  transition: $transitionDuration ease-out;
 }
