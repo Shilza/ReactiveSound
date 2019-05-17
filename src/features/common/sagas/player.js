@@ -1,14 +1,8 @@
 import {call, put, select, takeEvery} from "redux-saga/effects";
 import {playTrack, setPlayer} from "../actionCreators";
-import SC from "soundcloud";
 import {FETCHED_NEXT, FETCHED_PREVIOUS, FETCHED_TRACK} from "../actionTypes";
-import {
-    getCurrentTrackId,
-    getNextTrack,
-    getPreviousTrack,
-    getTrackById,
-    getTracks
-} from "../selectors";
+import {getCurrentTrackId, getNextTrack, getPreviousTrack, getTrackById, getTracks} from "../selectors";
+import {tracksApi} from "../api";
 
 export function* watchFetchTrack() {
     yield takeEvery(FETCHED_TRACK, fetchTrack);
@@ -25,14 +19,7 @@ export function* watchFetchPrevious() {
 function* fetchNext({payload: location}) {
     try {
         const track = yield select(getNextTrack, location);
-        const data = yield call(() =>
-            SC.stream(`/tracks/${track.id}`).then(sound =>
-                ({
-                    player: sound,
-                    currentTrack: track
-                })
-            )
-        );
+        const data = yield call(tracksApi.getTrackById, track);
         yield put(setPlayer(data));
         yield put(playTrack());
     } catch(error) {
@@ -43,14 +30,7 @@ function* fetchNext({payload: location}) {
 function* fetchPrevious({payload: location}) {
     try {
         const track = yield select(getPreviousTrack, location);
-        const data = yield call(() =>
-            SC.stream(`/tracks/${track.id}`).then(sound =>
-                ({
-                    player: sound,
-                    currentTrack: track
-                })
-            )
-        );
+        const data = yield call(tracksApi.getTrackById, track);
         yield put(setPlayer(data));
         yield put(playTrack());
     } catch (error) {
@@ -66,14 +46,7 @@ function* fetchTrack({payload: id}) {
 
         // Prevent downloading the same song
         if (currentTrackId !== id) {
-            const data = yield call(() =>
-                SC.stream(`/tracks/${id}`).then(sound =>
-                    ({
-                        player: sound,
-                        currentTrack: track
-                    })
-                )
-            );
+            const data = yield call(tracksApi.getTrackById, track);
             yield put(setPlayer(data));
             yield put(playTrack());
         }

@@ -1,12 +1,8 @@
 import {FETCHED_USER} from "../actionTypes";
-import {call, put, select, fork, take} from "redux-saga/effects";
-import SC from "soundcloud";
-import {
-    requestUser,
-    requestUserError,
-    requestUserSuccess
-} from "../actionCreators";
+import {call, fork, put, select, take} from "redux-saga/effects";
+import {requestUser, requestUserError, requestUserSuccess} from "../actionCreators";
 import {getCurrentUserId} from "../selectors";
+import {tracksApi} from "../../common/api";
 
 export function* watchFetchUser() {
     while(true) {
@@ -20,7 +16,7 @@ function* fetchUserAsync({payload: id}) {
         const currentUserId = yield select(getCurrentUserId);
         if (id !== currentUserId) {
             yield put(requestUser());
-            const data = yield call(() => SC.get('/users/' + id).then(tracks => tracks));
+            const data = yield call(tracksApi.getUserById, id);
             yield put(requestUserSuccess(data));
         }
     } catch (error) {

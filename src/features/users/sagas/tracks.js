@@ -1,5 +1,4 @@
 import {call, fork, put, select, take} from "redux-saga/effects";
-import SC from "soundcloud";
 import {
     requestUsersLikedTracksError,
     requestUsersTracks,
@@ -9,6 +8,7 @@ import {
 } from "../actionCreators";
 import {FETCHED_USERS_TRACKS, FETCHED_USERS_TRACKS_BY_PAGE} from "../actionTypes";
 import {getCountOfUsersTracks, getCurrentUserTracksUserId, getUsersTracksNextPage} from "../selectors";
+import {tracksApi} from "../../common/api";
 
 export function* watchFetchUsersTracks() {
     while (true) {
@@ -43,11 +43,7 @@ function* fetchUsersTracksAsync({payload: id}) {
         if (id !== currentUserId || countOfTracks === 0) {
             yield put(resetUsersTracks());
             yield put(requestUsersTracks());
-            const data = yield call(() => SC.get(`/users/${id}/tracks`, {
-                    limit: 20,
-                    linked_partitioning: 1
-                }).then(data => data)
-            );
+            const data = yield call(tracksApi.getUsersTracksById, id);
             yield put(requestUsersTracksSuccess({...data, userId: id}));
         }
     }

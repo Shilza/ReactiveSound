@@ -1,6 +1,5 @@
 import {FETCHED_SEARCH_TRACKS, FETCHED_SEARCH_TRACKS_BY_PAGE} from "../actionTypes";
-import {call, put, select, fork, take} from "redux-saga/effects";
-import SC from "soundcloud";
+import {call, fork, put, select, take} from "redux-saga/effects";
 import {
     requestSearchTracks,
     requestSearchTracksError,
@@ -8,6 +7,7 @@ import {
     resetSearchTracks
 } from "../actionCreators";
 import {getLastQuery, getSearchTrackNextPage} from "../selectors";
+import {tracksApi} from "../../common/api";
 
 export function* watchFetchSearchTracks() {
     while (true) {
@@ -41,14 +41,7 @@ function* fetchSearchTracksAsync({payload: query}) {
         if (lastQuery !== query) {
             yield put(resetSearchTracks());
             yield put(requestSearchTracks());
-            const data = yield call(() => {
-                    return SC.get('/tracks', {
-                        q: query,
-                        limit: 20,
-                        linked_partitioning: 1
-                    }).then(tracks => tracks);
-                }
-            );
+            const data = yield call(tracksApi.getTracks, query);
             yield put(requestSearchTracksSuccess({...data, query}));
         }
     } catch (error) {

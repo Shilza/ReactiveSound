@@ -1,5 +1,4 @@
 import {call, fork, put, select, take} from "redux-saga/effects";
-import SC from "soundcloud";
 import {
     requestUsersLikedTracks,
     requestUsersLikedTracksError,
@@ -8,6 +7,7 @@ import {
 } from "../actionCreators";
 import {FETCHED_USERS_LIKED_TRACKS, FETCHED_USERS_LIKED_TRACKS_BY_PAGE} from "../actionTypes";
 import {getCountOfLikedTracks, getCurrentLikedTracksUserId, getLikedTracksNextPage} from "../selectors";
+import {tracksApi} from "../../common/api";
 
 export function* watchFetchUsersLikedTracks() {
     while (true) {
@@ -42,11 +42,7 @@ function* fetchUsersLikedTracksAsync({payload: id}) {
         if (id !== currentUserId || countOfTracks === 0) {
             yield put(resetLikedTracks());
             yield put(requestUsersLikedTracks());
-            const data = yield call(() => SC.get(`/users/${id}/favorites`, {
-                        limit: 20,
-                        linked_partitioning: 1
-                    }).then(tracks => tracks)
-            );
+            const data = yield call(tracksApi.getFavorites, id);
             yield put(requestUsersLikedTracksSuccess({...data, userId: id}));
         }
     }
