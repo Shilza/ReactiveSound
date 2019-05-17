@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {cleanup, fireEvent, render, waitForElement} from 'react-testing-library';
 import {Header} from "./index";
 import {BrowserRouter} from "react-router-dom";
