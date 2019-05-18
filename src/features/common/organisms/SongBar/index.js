@@ -13,7 +13,7 @@ const SongBar = ({player, title, currentTrackId}) => (
                 <TimeLine id={currentTrackId}/>
                 <div className={styles.container}>
                     <div className={styles.subContainer}>
-                        <PlayerControls/>
+                        <PlayerControls currentTrackId={currentTrackId}/>
                         <MediaQuery minWidth={768}>
                             <PlayerTime/>
                         </MediaQuery>
