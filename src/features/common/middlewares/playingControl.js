@@ -3,7 +3,7 @@ import {PAUSE_TRACK, PLAY_TRACK} from "../actionTypes/";
 
 export const playingControl = store => next => action => {
     if (action.type === PLAY_TRACK) {
-        const intervalId = setInterval(function () {
+        const intervalId = setInterval(() => {
             store.getState().player.player.play();
             store.dispatch(setCurrentTime(store.getState().player.player.currentTime()));
         }, 100);
