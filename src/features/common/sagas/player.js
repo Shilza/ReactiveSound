@@ -5,7 +5,7 @@ import {getCurrentTrackId, getNextTrack, getPreviousTrack, getTrackById, getTrac
 import {tracksApi} from "../api";
 
 export function* watchFetchTrack() {
-    yield takeEvery(FETCHED_TRACK, fetchTrack);
+    yield takeEvery(FETCHED_TRACK, fetchTrackById);
 }
 
 export function* watchFetchNext() {
@@ -16,12 +16,16 @@ export function* watchFetchPrevious() {
     yield takeEvery(FETCHED_PREVIOUS, fetchPrevious);
 }
 
+export function* fetchTrack(track) {
+    const data = yield call(tracksApi.getTrackById, track);
+    yield put(setPlayer(data));
+    yield put(playTrack());
+}
+
 function* fetchNext({payload: location}) {
     try {
         const track = yield select(getNextTrack, location);
-        const data = yield call(tracksApi.getTrackById, track);
-        yield put(setPlayer(data));
-        yield put(playTrack());
+        yield call(fetchTrack, track);
     } catch(error) {
         console.error(error);
     }
@@ -30,26 +34,21 @@ function* fetchNext({payload: location}) {
 function* fetchPrevious({payload: location}) {
     try {
         const track = yield select(getPreviousTrack, location);
-        const data = yield call(tracksApi.getTrackById, track);
-        yield put(setPlayer(data));
-        yield put(playTrack());
+        yield call(fetchTrack, track);
     } catch (error) {
         console.error(error);
     }
 }
 
-function* fetchTrack({payload: id}) {
+function* fetchTrackById({payload: id}) {
     try {
         const currentTrackId = yield select(getCurrentTrackId);
         const tracks = yield select(getTracks);
-        const track = getTrackById(tracks, id);
+        const track = yield call(getTrackById, tracks, id);
 
         // Prevent downloading the same song
-        if (currentTrackId !== id) {
-            const data = yield call(tracksApi.getTrackById, track);
-            yield put(setPlayer(data));
-            yield put(playTrack());
-        }
+        if (currentTrackId !== id)
+           yield call(fetchTrack, track);
     } catch (error) {
         console.error(error);
     }
