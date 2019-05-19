@@ -20,6 +20,7 @@
     "redux": "^4.0.1",
     "redux-mock-store": "^1.5.3",
     "redux-saga": "^1.0.2",
+    "redux-saga-test-plan": "^4.0.0-beta.3",
     "soundcloud": "^3.3.2"
   },
   "scripts": {
@@ -59,7 +60,9 @@
   },
   "homepage": "https://shilza.github.io/ReactiveSound",
   "devDependencies": {
+    "@types/jest": "^24.0.13",
     "jest-dom": "^3.2.2",
+    "jest-fetch-mock": "^2.1.2",
     "react-testing-library": "^7.0.0"
   }
 }
