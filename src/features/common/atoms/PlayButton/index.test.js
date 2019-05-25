@@ -24,13 +24,13 @@ describe('Test PlayButton', () => {
 
     it('should start play sound and change button state', () => {
 
-        const {container} = render(
+        const {container, getByTestId} = render(
             <Provider store={store}>
                 <PlayButton id={trackId}/>
             </Provider>
         );
 
-        const button = container.querySelector('button');
+        const button = getByTestId('playButton');
 
         expect(button).toHaveAttribute('aria-label', 'Play');
 
@@ -43,6 +43,6 @@ describe('Test PlayButton', () => {
                 expect(spy).toHaveBeenCalledTimes(1);
                 expect(button).toHaveAttribute('aria-label', 'Pause');
             })
-            .catch(err => console.log(`Error: ${err}`))
+            .catch(err => console.log(`Error: ${err}`));
     });
 });

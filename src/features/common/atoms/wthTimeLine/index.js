@@ -23,7 +23,12 @@ export const withTimeLine = WrappedComponent => {
             currentTimeLinePosition = `${currentTime / duration * 100}%`;
 
         return (
-            <div ref={timeLineRef} onClick={seek} className={styles.container}>
+            <div
+                ref={timeLineRef}
+                onClick={seek}
+                className={styles.container}
+                data-testid="timeLine"
+            >
                 <WrappedComponent {...props} currentTimeLinePosition={currentTimeLinePosition} />
             </div>
         )
