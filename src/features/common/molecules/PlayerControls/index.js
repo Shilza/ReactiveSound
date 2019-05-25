@@ -7,7 +7,7 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router";
 import {PlayButton} from "../../atoms";
 
-const PlayerControls = withRouter(({currentTrackId, trackIntervalId, location, dispatch}) => {
+const PlayerControls = withRouter(({currentTrackId, location, dispatch}) => {
 
     const onNext = () => {
         // Pass a location prop that there was a selection from the appropriate storage
@@ -20,17 +20,23 @@ const PlayerControls = withRouter(({currentTrackId, trackIntervalId, location, d
 
     return (
         <div className={styles.container}>
-            <Button onClick={onPrevious} aria-label='Previous track'>
+            <Button
+                onClick={onPrevious}
+                aria-label='Previous track'
+                data-testid='previousButton'
+            >
                 <Icon name='previous' fill='#4d4e4f'/>
             </Button>
             <PlayButton id={currentTrackId}/>
-            <Button onClick={onNext} aria-label='Next track'>
+            <Button
+                onClick={onNext}
+                aria-label='Next track'
+                data-testid='nextButton'
+            >
                 <Icon name='next' fill='#4d4e4f'/>
             </Button>
         </div>
     );
 });
 
-export default connect(state => ({
-    trackIntervalId: state.player.trackIntervalId
-}))(PlayerControls);
+export default connect()(PlayerControls);
