@@ -1,6 +1,6 @@
 import {SEEK_TO, SET_CURRENT_TIME, SET_PLAYER, SET_PLAYER_INTERVAL} from "../actionTypes";
 
-const initialState = {
+export const initialState = {
     player: undefined,
     currentTrack: undefined,
     trackIntervalId: undefined,

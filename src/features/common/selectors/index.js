@@ -48,22 +48,22 @@ export const getPreviousTrack = (state, location) => {
     };
 };
 
-const getTracksByLocation = (state, location) => {
+export const getTracksByLocation = (state, location) => {
     if (location.includes('search'))
         return state.search.tracks;
     else if (location.includes('tracks'))
         return state.user.tracks.data;
     else if (location.includes('liked'))
         return state.user.likedTracks.data;
-    else
+    else if(location.includes('favorite'))
         return state.favorite.tracks.tracks;
 };
 
 export const getTracks = state => [
-    ...state.favorite.tracks.tracks,
-    ...state.search.tracks,
-    ...state.user.tracks.data,
-    ...state.user.likedTracks.data
+    ...state.favorite?.tracks?.tracks,
+    ...state.search?.tracks,
+    ...state.user?.tracks?.data,
+    ...state.user?.likedTracks?.data
 ];
 
 export const getTrackById = (tracks, id) => tracks.find(item => item.id === id);
