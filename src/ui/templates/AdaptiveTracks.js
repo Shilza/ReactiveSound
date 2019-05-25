@@ -1,7 +1,7 @@
 import React from "react";
 import MediaQuery from "react-responsive";
 import {WaveformTracks} from "./WaveformTracks";
-import {Tracks} from "../../features/favorites/templates";
+import {Tracks} from './index';
 
 export const AdaptiveTracks = React.memo(({tracks, hasMore, fetchNext}) => (
         <MediaQuery minWidth={1000}>

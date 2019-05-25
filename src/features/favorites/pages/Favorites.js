@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect} from "react";
-import {CommonContent} from "../../common/";
-import {Tracks} from "../templates";
 import {connect} from "react-redux";
+import {CommonContent} from "../../common/";
+import {Tracks} from '../../../ui/templates';
 import {fetchFavoriteTracks, fetchFavoriteTracksByPage} from "../actionCreators";
 
 const Favorites = ({dispatch, tracks, loading, error, nextPage}) => {
