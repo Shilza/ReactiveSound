@@ -5,7 +5,7 @@ import {PlayerTime, TimeLine} from "../../atoms";
 import {connect} from "react-redux";
 import MediaQuery from "react-responsive";
 
-const SongBar = ({player, title, currentTrackId}) => (
+const SongBar = ({player, title, currentTime, duration, currentTrackId}) => (
     <>
         {
             player &&
@@ -15,7 +15,10 @@ const SongBar = ({player, title, currentTrackId}) => (
                     <div className={styles.subContainer}>
                         <PlayerControls currentTrackId={currentTrackId}/>
                         <MediaQuery minWidth={768}>
-                            <PlayerTime/>
+                            <PlayerTime
+                                currentTime={currentTime}
+                                duration={duration}
+                            />
                         </MediaQuery>
                         <span title={title} className={styles.title}>{title}</span>
                     </div>
@@ -29,7 +32,9 @@ const SongBar = ({player, title, currentTrackId}) => (
 );
 
 export default connect(state => ({
-    player: state.player.player,
-    title: state.player.currentTrack && state.player.currentTrack.title,
-    currentTrackId: state.player.currentTrack && state.player.currentTrack.id
+    player: state.player?.player,
+    title: state.player?.currentTrack?.title,
+    currentTrackId: state.player?.currentTrack?.id,
+    currentTime: state.player?.currentTime,
+    duration: state.player?.currentTrack?.duration
 }))(SongBar);

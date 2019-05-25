@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 
 export const Error = () => {
     const reload = () => {
-        window.location.reload()
+        window.location.reload();
     };
 
     return (

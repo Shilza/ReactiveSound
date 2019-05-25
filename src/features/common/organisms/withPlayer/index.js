@@ -30,7 +30,7 @@ export const withPlayer = WrappedComponent => {
 };
 
 const mapStateToProps = state => ({
-    player: state.player.player,
-    currentTrackId: state.player.currentTrack && state.player.currentTrack.id,
-    trackIntervalId: state.player.trackIntervalId
+    player: state?.player?.player,
+    currentTrackId: state?.player?.currentTrack?.id,
+    trackIntervalId: state?.player?.trackIntervalId
 });
