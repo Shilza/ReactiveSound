@@ -1,10 +1,12 @@
 import React from 'react';
-import {fireEvent, render, waitForElement} from 'react-testing-library';
+import {fireEvent, cleanup, render, waitForElement} from 'react-testing-library';
 import {Header} from "./index";
 import {BrowserRouter as Router} from "react-router-dom";
 import searchBarStyles from '../SearchBar/styles.module.scss';
 
 describe('Test Header', () => {
+
+    afterEach(cleanup);
 
     it('open-close search bar', async () => {
         const {getByTestId} = render(

@@ -1,5 +1,4 @@
 import 'jest-dom/extend-expect';
-import {cleanup} from "react-testing-library";
+import 'jest-canvas-mock';
 
-afterEach(cleanup);
 global.fetch = require('jest-fetch-mock');

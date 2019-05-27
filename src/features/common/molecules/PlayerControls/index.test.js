@@ -1,5 +1,5 @@
 import React from 'react';
-import {fireEvent, render} from 'react-testing-library';
+import {fireEvent, cleanup, render} from 'react-testing-library';
 import PlayerControls from './index';
 import {Provider} from "react-redux";
 import configureStore from 'redux-mock-store';
@@ -9,6 +9,8 @@ import {BrowserRouter as Router} from "react-router-dom";
 const mockStore = configureStore();
 
 describe('Test PlayerControls', () => {
+
+    afterEach(cleanup);
 
     const trackId = 5;
     const path = "/";
