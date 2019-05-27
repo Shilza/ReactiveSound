@@ -3,24 +3,31 @@ import {render} from 'react-testing-library';
 import {SubHeader} from "./index";
 
 describe('Test SubHeader', () => {
+    const location = 'Favorite';
+    const children = <div data-testid='subHeaderChildren'>Children</div>;
 
-    it('should change location after submitting search value', () => {
+    const {container, getByTestId, queryByTestId} = render(
+        <SubHeader section={<div>Section</div>} location={location}>
+            {children}
+        </SubHeader>
+    );
 
-        const location = 'Favorite';
-        const children = <div data-testid='subHeaderChildren'>Children</div>;
+    it('should renders correctly', () => {
+        expect(container.firstChild).toMatchSnapshot();
+    });
 
-        const {container, getByTestId, queryByTestId} = render(
-            <SubHeader section={<div>Section</div>} location={location}>
-                {children}
-            </SubHeader>
-        );
-
+    it('title should have correct text', () => {
         const title = getByTestId('subHeaderTitle');
-        let section = queryByTestId('subHeaderSection');
-        const subHeaderChildren = queryByTestId('subHeaderChildren');
-
-        expect(section).not.toBeEmpty();
-        expect(container).toContainElement(subHeaderChildren);
         expect(title).toHaveTextContent(location);
+    });
+
+    it('section should have two child', () => {
+        let section = queryByTestId('subHeaderSection');
+        expect(section.childNodes.length).toBe(2);
+    });
+
+    it('should have passed child', () => {
+        const subHeaderChildren = queryByTestId('subHeaderChildren');
+        expect(container).toContainElement(subHeaderChildren);
     });
 });

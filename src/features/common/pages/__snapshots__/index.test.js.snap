@@ -1,75 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test NoMatch should render NoMatch page 1`] = `
-<div>
-  <header
-    class="container"
+exports[`Test NoMatch should renders correctly 1`] = `
+<header
+  class="container"
+>
+  <div
+    class="header"
   >
-    <div
-      class="header"
+    <h1
+      class="title"
     >
-      <h1
-        class="title"
+      <a
+        class="link"
+        href="/"
       >
-        <a
-          class="link"
-          href="/"
-        >
-          Reactive Sound
-        </a>
-      </h1>
-      <nav
-        class="container"
+        Reactive Sound
+      </a>
+    </h1>
+    <nav
+      class="container"
+    >
+      <ul
+        class="iconsList"
       >
-        <ul
-          class="iconsList"
-        >
-          <li>
-            <button
-              class="button"
-              data-testid="searchButton"
-              id="searchButton"
+        <li>
+          <button
+            class="button"
+            data-testid="searchButton"
+            id="searchButton"
+          >
+            <svg
+              fill="#7f8081"
+              focusable="false"
+              height="1.1em"
+              id="searchIcon"
+              role="img"
+              viewBox="0 0 500 500"
+              width="1.1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
+ s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
+ C452.25,441.8,452.25,433.2,447.05,428z
+ M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
+ s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"
+              />
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            class="button"
+          >
+            <a
+              href="http://soundcloud.com/"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <svg
                 fill="#7f8081"
                 focusable="false"
                 height="1.1em"
-                id="searchIcon"
                 role="img"
-                viewBox="0 0 500 500"
+                viewBox="0 0 100 100"
                 width="1.1em"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
- s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
- C452.25,441.8,452.25,433.2,447.05,428z
- M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
- s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"
-                />
-              </svg>
-            </button>
-          </li>
-          <li>
-            <button
-              class="button"
-            >
-              <a
-                href="http://soundcloud.com/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <svg
-                  fill="#7f8081"
-                  focusable="false"
-                  height="1.1em"
-                  role="img"
-                  viewBox="0 0 100 100"
-                  width="1.1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.361,67.281L5,60.279l-1.639-7.238c-0.045-0.215-0.457-0.379-0.959-0.379
+                  d="M3.361,67.281L5,60.279l-1.639-7.238c-0.045-0.215-0.457-0.379-0.959-0.379
  c-0.508,0-0.92,0.164-0.959,0.381L0,60.279l1.443,7.002c0.039,0.217,0.451,0.381,0.959,0.381
  C2.904,67.662,3.316,67.498,3.361,67.281z
  M13.611,71.168L15,60.348l-1.389-16.74c-0.041-0.426-0.561-0.76-1.191-0.76
@@ -87,31 +86,31 @@ exports[`Test NoMatch should render NoMatch page 1`] = `
  M51.391,71.98C51.424,71.982,86.883,72,87.114,72C94.232,72,100,66.42,100,59.537
  c0-6.885-5.768-12.465-12.887-12.465c-1.766,0-3.449,0.348-4.984,0.969C81.104,36.811,71.363,28,59.484,28
  c-2.906,0-5.742,0.553-8.244,1.488c-0.972,0.366-1.232,0.739-1.24,1.467v39.553C50.01,71.27,50.621,71.906,51.391,71.98z"
-                  />
-                </svg>
-              </a>
-            </button>
-          </li>
-          <li>
-            <button
-              class="button"
+                />
+              </svg>
+            </a>
+          </button>
+        </li>
+        <li>
+          <button
+            class="button"
+          >
+            <a
+              href="https://github.com/Shilza/ReactiveSound"
+              rel="noopener noreferrer"
+              target="_blank"
             >
-              <a
-                href="https://github.com/Shilza/ReactiveSound"
-                rel="noopener noreferrer"
-                target="_blank"
+              <svg
+                fill="#7f8081"
+                focusable="false"
+                height="1.1em"
+                role="img"
+                viewBox="0 0 430 430"
+                width="1.1em"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  fill="#7f8081"
-                  focusable="false"
-                  height="1.1em"
-                  role="img"
-                  viewBox="0 0 430 430"
-                  width="1.1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
+                <path
+                  d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
  c-39.781,0-76.472,9.804-110.063,29.408c-33.596,19.605-60.192,46.204-79.8,79.8C9.803,148.168,0,184.854,0,224.63
  c0,47.78,13.94,90.745,41.827,128.906c27.884,38.164,63.906,64.572,108.063,79.227c5.14,0.954,8.945,0.283,11.419-1.996
  c2.475-2.282,3.711-5.14,3.711-8.562c0-0.571-0.049-5.708-0.144-15.417c-0.098-9.709-0.144-18.179-0.144-25.406l-6.567,1.136
@@ -131,53 +130,30 @@ exports[`Test NoMatch should render NoMatch page 1`] = `
  c9.894,8.562,14.842,22.077,14.842,40.539v60.237c0,3.422,1.19,6.279,3.572,8.562c2.379,2.279,6.136,2.95,11.276,1.995
  c44.163-14.653,80.185-41.062,108.068-79.226c27.88-38.161,41.825-81.126,41.825-128.906
  C438.536,184.851,428.728,148.168,409.132,114.573z"
-                  />
-                </svg>
-              </a>
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <div
-      class="searchBarLeave"
-      data-testid="searchBar"
-    >
-      <form
-        class="barContainer"
-        data-testid="searchForm"
-      >
-        <input
-          class="searchInput"
-          data-testid="searchInput"
-          maxlength="60"
-          placeholder="Search Tracks"
-          type="text"
-        />
-      </form>
-    </div>
-  </header>
-  <main
-    class="mainContainer"
+                />
+              </svg>
+            </a>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div
+    class="searchBarLeave"
+    data-testid="searchBar"
   >
-    <div
-      class="container"
+    <form
+      class="barContainer"
+      data-testid="searchForm"
     >
-      <h1>
-        404 Page not found
-      </h1>
-      <span>
-        Don't panic, and make sure
-        <br />
-        to watch your oxygen levels
-      </span>
-      <a
-        class="link"
-        href="/"
-      >
-        Return to safety
-      </a>
-    </div>
-  </main>
-</div>
+      <input
+        class="searchInput"
+        data-testid="searchInput"
+        maxlength="60"
+        placeholder="Search Tracks"
+        type="text"
+      />
+    </form>
+  </div>
+</header>
 `;

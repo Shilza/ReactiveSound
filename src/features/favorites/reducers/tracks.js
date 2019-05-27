@@ -5,7 +5,7 @@ import {
 } from "../actionTypes";
 import {transformTrack} from "../../common/utils";
 
-const initialState = {
+export const initialState = {
     tracks: [],
     nextPage: undefined,
     loading: false,

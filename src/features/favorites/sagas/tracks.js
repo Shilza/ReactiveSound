@@ -1,21 +1,15 @@
 import {FETCHED_FAVORITE_TRACKS, FETCHED_FAVORITE_TRACKS_BY_PAGE} from "../actionTypes";
-import {call, fork, put, select, take} from "redux-saga/effects";
+import {call, put, select, takeEvery} from "redux-saga/effects";
 import {requestFavoriteTracks, requestFavoriteTracksError, requestFavoriteTracksSuccess} from "../actionCreators";
 import {getFavoriteTracksNextPage} from "../selectos";
 import {tracksApi} from "../../common/api";
 
 export function* watchFetchFavoriteTracks() {
-    while(true) {
-        const action = yield take(FETCHED_FAVORITE_TRACKS);
-        yield fork(fetchFavoriteTracksAsync, action);
-    }
+    yield takeEvery(FETCHED_FAVORITE_TRACKS, fetchFavoriteTracksAsync);
 }
 
 export function* watchFetchFavoriteTracksByPage() {
-    while(true) {
-        const action = yield take(FETCHED_FAVORITE_TRACKS_BY_PAGE);
-        yield fork(fetchFavoriteTracksByPageAsync, action);
-    }
+    yield takeEvery(FETCHED_FAVORITE_TRACKS_BY_PAGE, fetchFavoriteTracksByPageAsync);
 }
 
 function* fetchFavoriteTracksByPageAsync() {

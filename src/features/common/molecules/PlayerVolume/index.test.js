@@ -14,25 +14,16 @@ describe('Test PlayerControls', () => {
         }
     };
 
+    const {getByTestId} = render(
+        <PlayerVolume player={player}/>
+    );
+    const range = getByTestId('volumeRange');
+
     it('should have correct volume value', () => {
-
-        const {getByTestId} = render(
-            <PlayerVolume player={player}/>
-        );
-
-        const range = getByTestId('volumeRange');
-
         expect(range).toHaveAttribute('value', '100');
     });
 
     it('should change value by step', () => {
-
-        const {getByTestId} = render(
-            <PlayerVolume player={player}/>
-        );
-
-        const range = getByTestId('volumeRange');
-
         fireEvent.change(range, {
             target: {
                 value: 50

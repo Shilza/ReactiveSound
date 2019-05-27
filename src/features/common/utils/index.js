@@ -7,10 +7,11 @@ const convertMsToString = (ms = 0) => {
 const transformTrack = track => {
     if (track.artwork_url)
         track.artwork_url = track.artwork_url.substr(0, track.artwork_url.length - 9) + 't250x250.jpg';
-    else
+    else if (track?.user?.avatar_url)
         track.artwork_url = track.user.avatar_url.substr(0, track.user.avatar_url.length - 9) + 't250x250.jpg';
 
-    track.waveform_url = track.waveform_url.replace('.png', '.json');
+    if (track.waveform_url)
+        track.waveform_url = track.waveform_url.replace('.png', '.json');
 
     return track;
 };

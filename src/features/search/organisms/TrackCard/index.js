@@ -11,7 +11,13 @@ import {convertMsToString} from "../../../common/utils";
 
 const TrackCard = ({id, onPlay, userId, link, isPlay, duration, title, dispatch, username, likesCount, playbackCount, waveform}) => (
     <div className={styles.container}>
-        <Link to={`/users/${userId}/tracks`} className={styles.username}>{username}</Link>
+        <Link
+            to={`/users/${userId}/tracks`}
+            className={styles.username}
+            data-testid='userLink'
+        >
+            {username}
+            </Link>
         <div className={styles.title}>{title}</div>
         <Waveform id={id} waveform={waveform}/>
         <div className={styles.actions}>
@@ -25,7 +31,12 @@ const TrackCard = ({id, onPlay, userId, link, isPlay, duration, title, dispatch,
                 <Icon name='like' viewBox="0 0 51.997 51.997"/>
             </Action>
             <Action>
-                <a href={link} target='_blank' rel='noopener noreferrer'>
+                <a
+                    href={link}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    data-testid='trackLink'
+                >
                     <Button>
                         <Icon name='chain' viewBox='0 0 500 500' fill='#4d4e4f'/>
                     </Button>
@@ -36,7 +47,7 @@ const TrackCard = ({id, onPlay, userId, link, isPlay, duration, title, dispatch,
 );
 
 export default connect(state => ({
-    player: state.player.player,
-    currentTrackId: state.player.currentTrack && state.player.currentTrack.id,
-    trackIntervalId: state.player.trackIntervalId
+    player: state.player?.player,
+    currentTrackId: state.player?.currentTrack?.id,
+    trackIntervalId: state.player?.trackIntervalId
 }))(TrackCard);

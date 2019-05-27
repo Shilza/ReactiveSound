@@ -7,7 +7,7 @@ import {getWaveformTracks, getWaveformUrlById} from "../../search/selectors";
 
 describe('Test waveform sagas', () => {
     beforeEach(() => {
-        fetch.resetMocks()
+        fetch.resetMocks();
     });
 
     it('fetch waveform saga runs', () => {

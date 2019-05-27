@@ -12,7 +12,13 @@ export const NoMatch = () => (
         <br/>
             to watch your oxygen levels
         </span>
-            <Link className={styles.link} to='/'>Return to safety</Link>
+            <Link
+                className={styles.link}
+                to='/'
+                data-testid='noMatchLinkToHome'
+            >
+                Return to safety
+            </Link>
         </div>
     </CommonContent>
 );

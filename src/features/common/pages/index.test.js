@@ -5,13 +5,17 @@ import {BrowserRouter as Router} from "react-router-dom";
 
 describe('Test NoMatch', () => {
 
-    it('should render NoMatch page', () => {
+    const {container, getByTestId} = render(
+        <Router>
+            <NoMatch/>
+        </Router>
+    );
 
-        const {container} = render(
-            <Router>
-                <NoMatch/>
-            </Router>
-        );
-        expect(container).toMatchSnapshot();
+    it('should renders correctly', () => {
+        expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it('item link should be have path to home page', () => {
+        expect(getByTestId('noMatchLinkToHome')).toHaveAttribute('href', '/');
     });
 });

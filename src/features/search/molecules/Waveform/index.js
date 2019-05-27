@@ -39,7 +39,11 @@ export const Waveform = ({id, waveform}) => {
 
 const Body = withLoader(withTimeLine(({canvasRef, currentTimeLinePosition}) => (
     <div className={styles.timeLineContainer}>
-        <div className={styles.timeLine} style={{width: currentTimeLinePosition}}/>
+        <div
+            className={styles.timeLine}
+            style={{width: currentTimeLinePosition}}
+            data-testid='waveformCurrentTimeLinePosition'
+        />
         <canvas ref={canvasRef}/>
     </div>
 )));
