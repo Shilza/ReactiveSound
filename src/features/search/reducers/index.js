@@ -7,7 +7,7 @@ import {
 import {getUnique, setWaveform, transformTrack} from "../../common/utils";
 import {REQUESTED_WAVEFORM_SUCCEED} from "../../common/actionTypes";
 
-const initialState = {
+export const initialState = {
     tracks: [],
     nextPage: undefined,
     query: undefined,
@@ -21,7 +21,7 @@ export const searchReducer = (state = initialState, {type, payload = null}) => {
             return {
                 ...state,
                 loading: true,
-                error: false,
+                error: false
             };
         case REQUESTED_SEARCH_TRACKS_SUCCEED:
             return {
@@ -35,7 +35,7 @@ export const searchReducer = (state = initialState, {type, payload = null}) => {
             return {
                 ...state,
                 loading: false,
-                error: true,
+                error: true
             };
         case REQUESTED_WAVEFORM_SUCCEED:
             return {

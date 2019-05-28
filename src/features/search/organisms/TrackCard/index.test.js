@@ -16,15 +16,7 @@ describe('Test search TrackCard', () => {
     const likesCount = 200;
 
     const mockStore = configureStore();
-    const store = mockStore({
-        player: {
-            player: {},
-            currentTrack: {
-                id: 5
-            },
-            trackIntervalId: 123
-        }
-    });
+    const store = mockStore();
 
     const {container, getByTestId} = render(
         <Provider store={store}>

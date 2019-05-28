@@ -1,5 +1,5 @@
 import {FETCHED_SEARCH_TRACKS, FETCHED_SEARCH_TRACKS_BY_PAGE} from "../actionTypes";
-import {call, fork, put, select, take} from "redux-saga/effects";
+import {call, put, select, takeEvery} from "redux-saga/effects";
 import {
     requestSearchTracks,
     requestSearchTracksError,
@@ -10,17 +10,11 @@ import {getLastQuery, getSearchTrackNextPage} from "../selectors";
 import {tracksApi} from "../../common/api";
 
 export function* watchFetchSearchTracks() {
-    while (true) {
-        const action = yield take(FETCHED_SEARCH_TRACKS);
-        yield fork(fetchSearchTracksAsync, action);
-    }
+    yield takeEvery(FETCHED_SEARCH_TRACKS, fetchSearchTracksAsync);
 }
 
 export function* watchFetchSearchTracksByPage() {
-    while (true) {
-        const action = yield take(FETCHED_SEARCH_TRACKS_BY_PAGE);
-        yield fork(fetchSearchTracksByPageAsync, action);
-    }
+    yield takeEvery(FETCHED_SEARCH_TRACKS_BY_PAGE, fetchSearchTracksByPageAsync);
 }
 
 function* fetchSearchTracksByPageAsync() {
@@ -35,7 +29,7 @@ function* fetchSearchTracksByPageAsync() {
     }
 }
 
-function* fetchSearchTracksAsync({payload: query}) {
+export function* fetchSearchTracksAsync({payload: query}) {
     try {
         const lastQuery = yield select(getLastQuery);
         if (lastQuery !== query) {

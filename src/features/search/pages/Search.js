@@ -14,6 +14,8 @@ const Search = ({match: {params}, dispatch, error, loading, nextPage, tracks}) =
         dispatch(fetchSearchTracksByPage());
     }, [dispatch]);
 
+    const hasMore = typeof nextPage === 'string';
+
     return (
         <CommonContent
             section='Search Results'
@@ -23,7 +25,7 @@ const Search = ({match: {params}, dispatch, error, loading, nextPage, tracks}) =
         >
             <AdaptiveTracks
                 fetchNext={fetchNext}
-                hasMore={typeof nextPage === 'string'}
+                hasMore={hasMore}
                 tracks={tracks}
             />
         </CommonContent>
@@ -31,8 +33,8 @@ const Search = ({match: {params}, dispatch, error, loading, nextPage, tracks}) =
 };
 
 export default connect(state => ({
-    error: state.search.error,
-    loading: state.search.loading,
-    tracks: state.search.tracks,
-    nextPage: state.search.nextPage
+    error: state.search?.error,
+    loading: state.search?.loading,
+    tracks: state.search?.tracks,
+    nextPage: state.search?.nextPage
 }))(Search);
