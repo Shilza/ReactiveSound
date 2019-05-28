@@ -14,6 +14,6 @@ const Tracks = withPagination(({tracks, currentTrackId}) => (
 );
 
 export default connect(state => ({
-    currentTrackId: state.player.currentTrack && state.player.currentTrack.id
+    currentTrackId: state.player?.currentTrack?.id
 }))(Tracks);
 
