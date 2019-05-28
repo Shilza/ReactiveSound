@@ -11,6 +11,11 @@ export const CommonContent = ({section, location, error, loading, children, subH
                 {subHeaderChild}
             </SubHeader>
         }
-        <Main loading={loading} error={error}>{children}</Main>
+        <Main
+            loading={loading}
+            error={error}
+        >
+            {children}
+        </Main>
     </>
 );

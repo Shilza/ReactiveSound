@@ -7,7 +7,7 @@ export const Error = () => {
     };
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid='errorContainer'>
             <h1>Error</h1>
             <span>
             Something went wrong
