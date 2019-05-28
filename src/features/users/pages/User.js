@@ -20,10 +20,10 @@ const User = ({match: {params}, user, userLoading, tracksError, tracksLoading, t
 );
 
 export default connect(state => ({
-    user: state.user.user.data,
-    userLoading: state.user.user.loading,
-    tracks: state.user.tracks.data,
-    tracksLoading: state.user.tracks.loading,
-    tracksError: state.user.tracks.error,
-    nextPage: state.user.tracks.nextPage,
+    user: state.user?.user?.data,
+    userLoading: state.user?.user?.loading,
+    tracks: state.user?.tracks?.data,
+    tracksLoading: state.user?.tracks?.loading,
+    tracksError: state.user?.tracks?.error,
+    nextPage: state.user?.tracks?.nextPage,
 }))(User);

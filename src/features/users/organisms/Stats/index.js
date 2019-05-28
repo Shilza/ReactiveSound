@@ -9,16 +9,26 @@ export const Stats = withRouter(React.memo(({user, loading, location: {pathname}
             {
                 !loading &&
                 <>
-                    <StatUnit count={user && user.track_count} active={pathname.includes('tracks')}>
-                        <Link to={`/users/${user && user.id}/tracks`}>Tracks</Link>
+                    <StatUnit count={user?.track_count} active={pathname.includes('tracks')}>
+                        <Link
+                            to={`/users/${user?.id}/tracks`}
+                            data-testid='userTracksLink'
+                        >
+                            Tracks
+                        </Link>
                     </StatUnit>
-                    <StatUnit count={user && user.public_favorites_count} active={pathname.includes('liked')}>
-                        <Link to={`/users/${user && user.id}/liked`}>Likes</Link>
+                    <StatUnit count={user?.public_favorites_count} active={pathname.includes('liked')}>
+                        <Link
+                            to={`/users/${user?.id}/liked`}
+                            data-testid='userLikedTracksLink'
+                        >
+                            Likes
+                        </Link>
                     </StatUnit>
-                    <StatUnit count={user && user.followers_count}>
+                    <StatUnit count={user?.followers_count}>
                         <div>Followers</div>
                     </StatUnit>
-                    <StatUnit count={user && user.followings_count}>
+                    <StatUnit count={user?.followings_count}>
                         <div>Followings</div>
                     </StatUnit>
                 </>

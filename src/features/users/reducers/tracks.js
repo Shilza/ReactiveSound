@@ -7,7 +7,7 @@ import {
 import {getUnique, setWaveform, transformTrack} from "../../common/utils";
 import {REQUESTED_WAVEFORM_SUCCEED} from "../../common/actionTypes";
 
-const initialState = {
+export const initialState = {
     data: [],
     nextPage: undefined,
     userId: undefined,

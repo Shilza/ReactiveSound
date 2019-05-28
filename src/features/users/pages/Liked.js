@@ -19,10 +19,10 @@ const Liked = ({match: {params}, user, userLoading, tracksError, tracksLoading, 
 );
 
 export default connect(state => ({
-    user: state.user.user.data,
-    userLoading: state.user.user.laoding,
-    tracks: state.user.likedTracks.data,
-    tracksLoading: state.user.likedTracks.loading,
-    trackError: state.user.likedTracks.error,
-    nextPage: state.user.likedTracks.nextPage
+    user: state.user?.user?.data,
+    userLoading: state.user?.user?.loading,
+    tracks: state.user?.likedTracks?.data,
+    tracksLoading: state.user?.likedTracks?.loading,
+    trackError: state.user?.likedTracks?.error,
+    nextPage: state.user?.likedTracks?.nextPage
 }))(Liked);
