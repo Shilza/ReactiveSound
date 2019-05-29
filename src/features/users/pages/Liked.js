@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {fetchUsersLikedTracks, requestLikedTracksByPage} from "../actionCreators";
+import {fetchUsersLikedTracks, fetchLikedTracksByPage} from "../actionCreators";
 import {Page} from "../templates";
 
 const Liked = ({match: {params}, user, userLoading, tracksError, tracksLoading, tracks, nextPage, dispatch}) => (
@@ -14,7 +14,7 @@ const Liked = ({match: {params}, user, userLoading, tracksError, tracksLoading, 
         dispatch={dispatch}
         id={parseInt(params.id)}
         tracksFethcer={fetchUsersLikedTracks}
-        tracksFethcerByPage={requestLikedTracksByPage}
+        tracksFethcerByPage={fetchLikedTracksByPage}
     />
 );
 

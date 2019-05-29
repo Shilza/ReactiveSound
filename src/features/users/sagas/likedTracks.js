@@ -1,4 +1,4 @@
-import {call, fork, put, select, take} from "redux-saga/effects";
+import {call, put, select, takeEvery} from "redux-saga/effects";
 import {
     requestUsersLikedTracks,
     requestUsersLikedTracksError,
@@ -10,17 +10,11 @@ import {getCountOfLikedTracks, getCurrentLikedTracksUserId, getLikedTracksNextPa
 import {tracksApi} from "../../common/api";
 
 export function* watchFetchUsersLikedTracks() {
-    while (true) {
-        const action = yield take(FETCHED_USERS_LIKED_TRACKS);
-        yield fork(fetchUsersLikedTracksAsync, action);
-    }
+     yield takeEvery(FETCHED_USERS_LIKED_TRACKS, fetchUsersLikedTracksAsync);
 }
 
 export function* watchFetchLikedTracksByPage() {
-    while (true) {
-        const action = yield take(FETCHED_USERS_LIKED_TRACKS_BY_PAGE);
-        yield fork(fetchLikedTracksByPageAsync, action);
-    }
+    yield takeEvery(FETCHED_USERS_LIKED_TRACKS_BY_PAGE, fetchLikedTracksByPageAsync);
 }
 
 function* fetchLikedTracksByPageAsync() {

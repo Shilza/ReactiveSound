@@ -3,7 +3,7 @@ import {cleanup, render} from 'react-testing-library';
 import {Stats} from "./index";
 import {BrowserRouter as Router} from "react-router-dom";
 
-describe('<Stats/>', () => {
+describe('<Stats/> users feature organism', () => {
     const user = {
         id: 5
     };
@@ -20,10 +20,6 @@ describe('<Stats/>', () => {
             />
         </Router>
     );
-
-    it('should renders correctly', () => {
-        expect(container.firstChild).toMatchSnapshot();
-    });
 
     it('should have child', () => {
         expect(container.firstChild.childNodes.length).toBeGreaterThanOrEqual(1);

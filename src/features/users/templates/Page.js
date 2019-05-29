@@ -17,7 +17,7 @@ export const Page = ({nextPage, dispatch, id, userLoading, tracksLoading, error,
 
     return (
         <CommonContent
-            location={user && user.username}
+            location={user?.username}
             subHeaderChild={<Stats loading={userLoading} user={user} />}
             loading={tracksLoading}
             error={error}

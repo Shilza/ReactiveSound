@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {fetchUsersTracks} from "../actionCreators/";
 import {Page} from "../templates";
-import {requestUsersTracksByPage} from "../actionCreators";
+import {fetchUsersTracksByPage} from "../actionCreators";
 
 const User = ({match: {params}, user, userLoading, tracksError, tracksLoading, tracks, nextPage, dispatch}) => (
     <Page
@@ -15,7 +15,7 @@ const User = ({match: {params}, user, userLoading, tracksError, tracksLoading, t
         dispatch={dispatch}
         id={parseInt(params.id)}
         tracksFethcer={fetchUsersTracks}
-        tracksFethcerByPage={requestUsersTracksByPage}
+        tracksFethcerByPage={fetchUsersTracksByPage}
     />
 );
 

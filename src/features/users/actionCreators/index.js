@@ -13,7 +13,7 @@ import {
 
 export const requestUsersTracks = () => ({ type: REQUESTED_USERS_TRACKS });
 
-export const requestUsersTracksByPage = () => ({ type: FETCHED_USERS_TRACKS_BY_PAGE });
+export const fetchUsersTracksByPage = () => ({ type: FETCHED_USERS_TRACKS_BY_PAGE });
 
 export const requestUsersTracksSuccess = payload => ({ type: REQUESTED_USERS_TRACKS_SUCCEED, payload });
 
@@ -26,7 +26,7 @@ export const resetUsersTracks = ()  => ({ type: RESET_USERS_TRACKS });
 
 export const requestUsersLikedTracks = () => ({ type: REQUESTED_USERS_LIKED_TRACKS });
 
-export const requestLikedTracksByPage = () => ({ type: FETCHED_USERS_LIKED_TRACKS_BY_PAGE });
+export const fetchLikedTracksByPage = () => ({ type: FETCHED_USERS_LIKED_TRACKS_BY_PAGE });
 
 export const requestUsersLikedTracksSuccess = payload => ({ type: REQUESTED_USERS_LIKED_TRACKS_SUCCEED, payload });
 

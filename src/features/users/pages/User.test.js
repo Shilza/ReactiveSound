@@ -6,7 +6,7 @@ import {Provider} from "react-redux";
 import {fetchUser, fetchUsersTracks} from "../actionCreators";
 import User from "./User";
 
-describe('<Stats/>', () => {
+describe('<User/> page', () => {
     const mockStore = configureStore();
     const store = mockStore({
         user: {
@@ -31,10 +31,6 @@ describe('<Stats/>', () => {
             </Router>
         </Provider>
     );
-
-    it('should renders correctly', () => {
-        expect(container.firstChild).toMatchSnapshot();
-    });
 
     it('should fetch user with passed id', () => {
         expect(store.getActions()[0]).toEqual(fetchUser(id));

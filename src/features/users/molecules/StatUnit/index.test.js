@@ -3,7 +3,7 @@ import {cleanup, render} from 'react-testing-library';
 import {StatUnit} from "./index";
 import styles from './styles.module.scss';
 
-describe('<StatUnit/>', (() => {
+describe('<StatUnit/> users feature molecule', (() => {
     const count = 500;
     const active = true;
     const Children = <div data-testid='statUnitChildren'>Children</div>;
@@ -12,10 +12,6 @@ describe('<StatUnit/>', (() => {
             {Children}
         </StatUnit>
     );
-
-    it('should renders correctly', () => {
-        expect(container.firstChild).toMatchSnapshot();
-    });
 
     it('should have active class', () => {
         const children = queryByTestId('statUnitChildren');
