@@ -1,7 +1,7 @@
 import {SEEK_TO, SET_CURRENT_TIME, SET_PLAYER, SET_PLAYER_INTERVAL} from "../actionTypes";
 import {initialState, playerReducer as reducer} from "./index";
 
-describe('Test common reducer', () => {
+describe('Common reducer', () => {
     it('SET_PLAYER action', () => {
         const action = {
             type: SET_PLAYER,

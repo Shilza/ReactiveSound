@@ -3,17 +3,13 @@ import {render} from 'react-testing-library';
 import {NoMatch} from "./NoMatch";
 import {BrowserRouter as Router} from "react-router-dom";
 
-describe('Test NoMatch', () => {
+describe('<NoMatch/> common page', () => {
 
-    const {container, getByTestId} = render(
+    const {getByTestId} = render(
         <Router>
             <NoMatch/>
         </Router>
     );
-
-    it('should renders correctly', () => {
-        expect(container.firstChild).toMatchSnapshot();
-    });
 
     it('item link should be have path to home page', () => {
         expect(getByTestId('noMatchLinkToHome')).toHaveAttribute('href', '/');

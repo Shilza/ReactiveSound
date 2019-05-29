@@ -6,7 +6,7 @@ import {getCurrentTrackId, getNextTrack, getPreviousTrack, getTrackById, getTrac
 import * as matchers from 'redux-saga-test-plan/matchers';
 import {tracksApi} from "../api";
 
-describe('Test player sagas', () => {
+describe('Player sagas', () => {
     it('fetch track saga runs', () => {
         const track = {id: 5};
         const data = {

@@ -38,7 +38,7 @@ const state = {
     }
 };
 
-describe('Test common selectors', () => {
+describe('Common selectors', () => {
     it('should return next track', () => {
         expect(getNextTrack(state, 'search')).toEqual(state.search.tracks[2]);
     });

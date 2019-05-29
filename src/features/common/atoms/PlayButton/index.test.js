@@ -20,9 +20,9 @@ const resolvedValue = {
 };
 tracksApi.getTrackById.mockResolvedValue(resolvedValue);
 
-describe('Test PlayButton', () => {
+describe('<PlayButton/> common atom', () => {
 
-    it('should start play sound and change button state', () => {
+    it('should start play sound and change button\'s state', () => {
 
         const {container, getByTestId} = render(
             <Provider store={store}>

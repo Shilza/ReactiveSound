@@ -5,7 +5,7 @@ import {watchFetchWaveform} from "./waveform";
 import {fetchWaveform, requestWaveformSuccess} from "../actionCreators";
 import {getWaveformTracks, getWaveformUrlById} from "../../search/selectors";
 
-describe('Test waveform sagas', () => {
+describe('Waveform sagas', () => {
     beforeEach(() => {
         fetch.resetMocks();
     });

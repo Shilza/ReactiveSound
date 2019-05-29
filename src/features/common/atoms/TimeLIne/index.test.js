@@ -30,20 +30,20 @@ const initialState = {
 
 const mockStore = configureStore([seek]);
 
-describe('Test TimeLine', () => {
+describe('<TimeLine/> common atom', () => {
+
+    const store = mockStore(() => {
+        const actions = store.getActions();
+        const lastAction = actions[actions.length - 1];
+        if (lastAction?.type === SET_CURRENT_TIME) {
+            return {
+                player: { ...initialState.player, currentTime: lastAction.payload}
+            };
+        }
+        return initialState;
+    });
 
     it('current time should change for the click position as a percentage', () => {
-
-        const store = mockStore(() => {
-            const actions = store.getActions();
-            const lastAction = actions[actions.length - 1];
-            if (lastAction && lastAction.type === SET_CURRENT_TIME) {
-                return {
-                    player: { ...initialState.player, currentTime: lastAction.payload}
-                };
-            }
-            return initialState;
-        });
 
         const {getByTestId} = render(
             <Provider store={store}>

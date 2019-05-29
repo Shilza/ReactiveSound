@@ -3,13 +3,9 @@ import {render} from 'react-testing-library';
 import {Loader} from "./index";
 import styles from './styles.module.scss';
 
-describe('Test Loader', () => {
+describe('<Loader/> common organism', () => {
     const {container} = render(<Loader/>);
     const childNodes = container.firstChild.childNodes;
-
-    it('should render correctly', () => {
-        expect(container.firstChild).toMatchSnapshot();
-    });
 
     it('should have three child', () => {
         expect(childNodes.length).toBe(3);

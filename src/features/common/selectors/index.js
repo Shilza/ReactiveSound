@@ -1,4 +1,4 @@
-export const getCurrentTrackId = state => state.player.currentTrack && state.player.currentTrack.id;
+export const getCurrentTrackId = state => state.player.currentTrack?.id;
 
 export const getNextTrack = (state, location) => {
     let id = state.player.currentTrack.id;
@@ -55,7 +55,7 @@ export const getTracksByLocation = (state, location) => {
         return state.user.tracks.data;
     else if (location.includes('liked'))
         return state.user.likedTracks.data;
-    else if(location.includes('favorite'))
+    else
         return state.favorite.tracks.tracks;
 };
 

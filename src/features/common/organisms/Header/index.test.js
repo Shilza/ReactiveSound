@@ -4,7 +4,7 @@ import {Header} from "./index";
 import {BrowserRouter as Router} from "react-router-dom";
 import searchBarStyles from '../SearchBar/styles.module.scss';
 
-describe('Test Header', () => {
+describe('<Header/> common organism', () => {
 
     afterEach(cleanup);
 

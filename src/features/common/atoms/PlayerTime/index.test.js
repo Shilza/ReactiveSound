@@ -3,7 +3,7 @@ import {render} from 'react-testing-library';
 import {PlayerTime} from './index';
 import {convertMsToString} from "../../utils";
 
-describe('Test PlayerTime', () => {
+describe('<PlayerTime/> common atom', () => {
     it('should renders with the correct time', () => {
         const currentTime = 14012;
         const duration = 200123;

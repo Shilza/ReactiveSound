@@ -8,7 +8,7 @@ import {BrowserRouter as Router} from "react-router-dom";
 
 const mockStore = configureStore();
 
-describe('Test PlayerControls', () => {
+describe('<PlayerControls/> common molecule', () => {
 
     afterEach(cleanup);
 

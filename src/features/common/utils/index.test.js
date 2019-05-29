@@ -1,7 +1,6 @@
-import React from 'react'
 import {convertMsToString, getUnique, transformTrack} from "./index";
 
-describe('Test utils', () => {
+describe('Common utils', () => {
 
     it('convertMsToString', () => {
         expect(convertMsToString(426645)).toBe('07:06');

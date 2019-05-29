@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import styles from './styles.module.scss';
 
 export const withTimeLine = WrappedComponent => {
-    const WrappedTimeLine = connect(mapStateToProps)(({duration, id, currentTrackId, currentTime, dispatch, ...props}) => {
+    const WrappedTimeLine = connect(mapStateToProps)(({id, duration, currentTrackId, currentTime, dispatch, ...props}) => {
         let timeLineRef = useRef();
 
         const seek = event => {
@@ -18,9 +18,7 @@ export const withTimeLine = WrappedComponent => {
             }
         };
 
-        let currentTimeLinePosition = 0;
-        if (currentTrackId === id)
-            currentTimeLinePosition = `${currentTime / duration * 100}%`;
+        const currentTimeLinePosition = currentTrackId === id ? `${currentTime / duration * 100}%` : 0;
 
         return (
             <div
@@ -44,7 +42,7 @@ export const withTimeLine = WrappedComponent => {
 };
 
 const mapStateToProps = state => ({
-    currentTime: state.player.currentTime,
-    duration: state.player.currentTrack && state.player.currentTrack.duration,
-    currentTrackId: state.player.currentTrack && state.player.currentTrack.id
+    currentTime: state.player?.currentTime,
+    duration: state.player?.currentTrack?.duration,
+    currentTrackId: state.player?.currentTrack?.id
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import {render} from 'react-testing-library';
 import {SubHeader} from "./index";
 
-describe('Test SubHeader', () => {
+describe('<SubHeader/> common organism', () => {
     const location = 'Favorite';
     const children = <div data-testid='subHeaderChildren'>Children</div>;
 
@@ -11,10 +11,6 @@ describe('Test SubHeader', () => {
             {children}
         </SubHeader>
     );
-
-    it('should renders correctly', () => {
-        expect(container.firstChild).toMatchSnapshot();
-    });
 
     it('title should have correct text', () => {
         const title = getByTestId('subHeaderTitle');

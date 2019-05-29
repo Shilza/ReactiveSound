@@ -2,7 +2,7 @@ import React from 'react';
 import {fireEvent, render} from 'react-testing-library';
 import {PlayerVolume} from "./index";
 
-describe('Test PlayerControls', () => {
+describe('<PlayerControls/> common molecule', () => {
 
     const player = {
         _volume: 1,
