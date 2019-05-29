@@ -28,8 +28,8 @@ const Favorites = ({dispatch, tracks, loading, error, nextPage}) => {
 };
 
 export default connect(state => ({
-    error: state.favorite.tracks.error,
-    tracks: state.favorite.tracks.tracks,
-    nextPage: state.favorite.tracks.nextPage,
-    loading: state.favorite.tracks.loading,
+    error: state.favorite?.tracks?.error,
+    tracks: state.favorite?.tracks?.tracks,
+    nextPage: state.favorite?.tracks?.nextPage,
+    loading: state.favorite?.tracks?.loading,
 }))(Favorites);

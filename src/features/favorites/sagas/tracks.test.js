@@ -11,7 +11,7 @@ import {watchFetchFavoriteTracks, watchFetchFavoriteTracksByPage} from "./tracks
 import {getFavoriteTracksNextPage} from "../selectos";
 import {tracksApi} from "../../common/api";
 
-describe('Test favorites sagas', () => {
+describe('Favorites feature sagas', () => {
     beforeEach(() => {
         fetch.resetMocks();
     });

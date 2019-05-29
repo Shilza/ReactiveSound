@@ -7,7 +7,7 @@ import {
 import {initialState} from "./tracks";
 import {transformTrack} from "../../common/utils";
 
-describe('Test favorites reducer', () => {
+describe('Favorites feature reducer', () => {
     it('REQUESTED_FAVORITE_TRACKS action', () => {
         const action = {
             type: REQUESTED_FAVORITE_TRACKS

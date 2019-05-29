@@ -1,6 +1,6 @@
 import {getFavoriteTracksNextPage} from "./index";
 
-describe('Test favorites selectors', () => {
+describe('Favorites feature selectors', () => {
     it('getFavoriteTracksNextPage should return nextPage', () => {
         const state = {
             favorite: {
