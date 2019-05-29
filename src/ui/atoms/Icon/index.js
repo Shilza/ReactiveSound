@@ -143,6 +143,7 @@ export const Icon = ({
         role='img'
         fill={fill}
         xmlns='http://www.w3.org/2000/svg'
+        data-testid='iconSvgContainer'
         {...props}
     >
         {getIconPath(name)}

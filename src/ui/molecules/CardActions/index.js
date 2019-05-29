@@ -8,9 +8,16 @@ export const CardActions = ({id, link, duration}) => (
     <div className={styles.container}>
         <div className={styles.playContainer}>
             <PlayButton id={id}/>
-            <span className={styles.duration}>{convertMsToString(duration)}</span>
+            <span className={styles.duration} data-testid='cardActionsDuration'>
+                {convertMsToString(duration)}
+             </span>
         </div>
-        <a href={link} target='_blank' rel='noopener noreferrer'>
+        <a
+            href={link}
+            target='_blank'
+            rel='noopener noreferrer'
+            data-testid='cardActionsLink'
+        >
             <Button aria-label='link'>
                 <Icon name='chain' viewBox='0 0 500 500' fill='#4d4e4f'/>
             </Button>

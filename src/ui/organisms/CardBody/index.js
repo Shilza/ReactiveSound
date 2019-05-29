@@ -11,8 +11,20 @@ export const CardBody = ({currentTrackId, userId, src, id, link, username, title
             { currentTrackId === id && <TimeLine id={id}/> }
         </div>
         <div className={styles.info}>
-            <Link to={`/users/${userId}/tracks`} className={styles.username}>{username}</Link>
-            <span className={styles.title} title={title}>{title}</span>
+            <Link
+                to={`/users/${userId}/tracks`}
+                className={styles.username}
+                data-testid='cardBodyTracksLink'
+            >
+                {username}
+                </Link>
+            <span
+                className={styles.title}
+                title={title}
+                data-testid='cardBodyTitle'
+            >
+                {title}
+                </span>
             <CardActions id={id} duration={duration} link={link} title={title}/>
         </div>
     </>

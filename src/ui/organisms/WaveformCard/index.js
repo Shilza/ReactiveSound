@@ -17,14 +17,16 @@ const WaveformCard = ({id, title, user, artwork_url, duration, likes_count, play
         <Fade bottom>
             <article className={styles.container}>
                 <div className={styles.coverContainer}>
-                    <img className={styles.cover} alt='cover'
-                         src={artwork_url}/>
+                    <img className={styles.cover}
+                         alt='cover'
+                         src={artwork_url}
+                    />
                 </div>
-                <TrackCard username={user.username}
+                <TrackCard username={user?.username}
                            id={id}
-                           userId={user.id}
+                           userId={user?.id}
                            playbackCount={playback_count}
-                           link={user.permalink_url} title={title} duration={duration} likesCount={likes_count}
+                           link={user?.permalink_url} title={title} duration={duration} likesCount={likes_count}
                            waveform={waveform}/>
             </article>
         </Fade>
