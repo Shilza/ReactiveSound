@@ -16,7 +16,7 @@ const resolvedValue = [
 ];
 tracksApi.getTracks.mockResolvedValue(resolvedValue);
 
-describe('Test Search page', () => {
+describe('<Search/> page', () => {
 
     const mockStore = configureStore();
     const store = mockStore({
@@ -36,10 +36,6 @@ describe('Test Search page', () => {
             </Router>
         </Provider>
     );
-
-    it('should renders correctly', () => {
-        expect(container.firstChild).toMatchSnapshot();
-    });
 
     it('should load tracks', () => {
         expect(store.getActions()[0]).toEqual(fetchSearchTracks('Artist'));

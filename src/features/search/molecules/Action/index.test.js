@@ -2,7 +2,7 @@ import React from "react";
 import {render} from 'react-testing-library';
 import {Action} from "./index";
 
-describe('Test search Action', () => {
+describe('<Action/> search feature molecule', () => {
     afterEach(() => {});
 
     const labelText = 'label';
@@ -11,10 +11,6 @@ describe('Test search Action', () => {
             <div>Children</div>
         </Action>
     );
-
-    it('should renders correctly', () => {
-        expect(container.firstChild).toMatchSnapshot();
-    });
 
     it('should have two child', () => {
         expect(container.firstChild.childNodes.length).toBe(2);

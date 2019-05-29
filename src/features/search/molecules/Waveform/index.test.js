@@ -7,7 +7,7 @@ import {SET_CURRENT_TIME} from "../../../common/actionTypes";
 import {seek} from "../../../common/middlewares";
 import {seekTo, setCurrentTime} from "../../../common/actionCreators";
 
-describe('Test Waveform', () => {
+describe('<Waveform/> search feature molecule', () => {
     afterEach(cleanup);
 
     const id = 5;
@@ -50,7 +50,7 @@ describe('Test Waveform', () => {
         const store = mockStore(() => {
             const actions = store.getActions();
             const lastAction = actions[actions.length - 1];
-            if (lastAction && lastAction.type === SET_CURRENT_TIME) {
+            if (lastAction?.type === SET_CURRENT_TIME) {
                 return {
                     player: { ...initialState.player, currentTime: lastAction.payload}
                 };

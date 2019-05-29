@@ -8,7 +8,7 @@ import {
 import {getUnique, setWaveform, transformTrack} from "../../common/utils";
 import {REQUESTED_WAVEFORM_SUCCEED} from "../../common/actionTypes";
 
-describe('Test search reducer', () => {
+describe('Search feature reducer', () => {
     it('REQUESTED_SEARCH_TRACKS action', () => {
         const action = {
             type: REQUESTED_SEARCH_TRACKS

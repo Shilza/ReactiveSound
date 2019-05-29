@@ -12,7 +12,7 @@ import {watchFetchSearchTracks, watchFetchSearchTracksByPage} from "./search";
 import {getLastQuery, getSearchTrackNextPage} from "../selectors";
 import {tracksApi} from "../../common/api";
 
-describe('Test search sagas', () => {
+describe('Search feature sagas', () => {
     beforeEach(() => {
         fetch.resetMocks();
     });
@@ -42,7 +42,6 @@ describe('Test search sagas', () => {
             .provide([
                 [select(getLastQuery), query],
                 [select(getSearchTrackNextPage), {}],
-                [matchers.call.fn(tracksApi.getTracks), data]
             ])
             .put(requestSearchTracksSuccess({...data, query}))
             .dispatch(fetchSearchTracksByPage(query))

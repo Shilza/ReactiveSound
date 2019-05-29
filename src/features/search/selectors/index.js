@@ -3,6 +3,6 @@ export const getWaveformTracks = state => [...state.search.tracks, ...state.user
 
 export const getWaveformUrlById = (tracks, id) => tracks.find(item => item.id === id).waveform_url;
 
-export const getSearchTrackNextPage = state => state.search.nextPage;
+export const getSearchTrackNextPage = state => state.search?.nextPage;
 
-export const getLastQuery = state => state.search.query;
+export const getLastQuery = state => state.search?.query;

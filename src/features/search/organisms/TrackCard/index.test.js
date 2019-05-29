@@ -5,7 +5,7 @@ import configureStore from "redux-mock-store";
 import TrackCard from './index';
 import {BrowserRouter as Router} from "react-router-dom";
 
-describe('Test search TrackCard', () => {
+describe('<TrackCard/> search feature organism', () => {
     const username = 'Username';
     const id = 5;
     const userId = 5;
@@ -34,10 +34,6 @@ describe('Test search TrackCard', () => {
             </Router>
         </Provider>
     );
-
-    it('should renders correctly', () => {
-        expect(container.firstChild).toMatchSnapshot();
-    });
 
     it('should have correct user\'s link', () => {
         const userLink = getByTestId('userLink');
