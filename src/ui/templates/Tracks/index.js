@@ -5,7 +5,10 @@ import {connect} from "react-redux";
 import {withPagination} from "../../../features/common/atoms/index";
 
 const Tracks = withPagination(({tracks, currentTrackId}) => (
-        <div className={styles.container}>
+        <div
+            className={styles.container}
+            data-testid='tracksContainer'
+        >
             {
                 tracks && tracks.map(item => <Card key={item.id} currentTrackId={currentTrackId} item={item}/>)
             }
