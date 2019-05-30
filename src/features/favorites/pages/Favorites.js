@@ -11,7 +11,6 @@ const Favorites = ({dispatch, tracks, loading, error, nextPage}) => {
     }, [dispatch, tracks]);
 
     const fetchNext = useCallback(() => {
-
         dispatch(fetchFavoriteTracksByPage());
     }, [dispatch]);
 
