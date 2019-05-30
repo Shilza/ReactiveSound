@@ -1,6 +1,5 @@
 import {call, put, select, takeEvery} from "redux-saga/effects";
 import {
-    requestUsersLikedTracksError,
     requestUsersTracks,
     requestUsersTracksError,
     requestUsersTracksSuccess,
@@ -25,7 +24,7 @@ function* fetchUsersTrackByPagesAsync() {
         const data = yield call([response, response.json]);
         yield put(requestUsersTracksSuccess(data));
     } catch (error) {
-        yield put(requestUsersLikedTracksError());
+        yield put(requestUsersTracksError());
     }
 }
 
