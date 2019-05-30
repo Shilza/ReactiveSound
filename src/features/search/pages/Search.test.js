@@ -2,34 +2,56 @@ import React from 'react';
 import {render} from 'react-testing-library';
 import {BrowserRouter as Router} from "react-router-dom";
 import Search from "./Search";
-import configureStore from "redux-mock-store";
 import {Provider} from "react-redux";
-import {fetchSearchTracks} from "../actionCreators";
 import {tracksApi} from "../../common/api";
+import store from "../../../store";
 
 jest.mock('../../common/api');
 
-const resolvedValue = [
-    {
-        id: 500
-    }
-];
+const resolvedValue = {
+    collection: [
+        {
+            id: 1,
+            title: 'title',
+            duration: 220000,
+            cover: 'artwork_url',
+            user: {
+                id: 5,
+                username: 'Username',
+                permalink_url: 'permalink_url'
+            }
+        },
+        {
+            id: 2,
+            title: 'title',
+            duration: 220000,
+            cover: 'artwork_url',
+            user: {
+                id: 5,
+                username: 'Username',
+                permalink_url: 'permalink_url'
+            }
+        },
+        {
+            id: 3,
+            title: 'title',
+            duration: 220000,
+            cover: 'artwork_url',
+            user: {
+                id: 5,
+                username: 'Username',
+                permalink_url: 'permalink_url'
+            }
+        }
+    ],
+    next_href: undefined
+};
 tracksApi.getTracks.mockResolvedValue(resolvedValue);
 
 describe('<Search/> page', () => {
 
-    const mockStore = configureStore();
-    const store = mockStore({
-        search: {
-            error: false,
-            loading: false,
-            tracks: [],
-            nextPage: undefined
-        }
-    });
-
     const query = 'Artist';
-    const {container} = render(
+    const {queryByTestId, debug} = render(
         <Provider store={store}>
             <Router>
                 <Search match={{params: {query}}}/>
@@ -37,7 +59,9 @@ describe('<Search/> page', () => {
         </Provider>
     );
 
-    it('should load tracks', () => {
-        expect(store.getActions()[0]).toEqual(fetchSearchTracks('Artist'));
+    it('should have three child', () => {
+        const trackContainer = queryByTestId('tracksContainer');
+        debug(trackContainer);
+        expect(trackContainer.childNodes.length).toBe(3);
     });
 });
