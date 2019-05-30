@@ -1,4 +1,4 @@
-<!-- [![CircleCI](https://circleci.com/gh/Shilza/ReactiveSound.svg?style=svg)](https://circleci.com/gh/Shilza/ReactiveSound) -->
+[![CircleCI](https://circleci.com/gh/Shilza/ReactiveSound.svg?style=svg)](https://circleci.com/gh/Shilza/ReactiveSound)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 <img align="right" alt='Reactive sound logo' width="80" height="80" src="https://github.com/Shilza/ReactiveSound/blob/master/public/logo2.png" />
