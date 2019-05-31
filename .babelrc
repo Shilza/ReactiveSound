@@ -3,6 +3,7 @@
     "react-app"
   ],
   "plugins": [
-    "@babel/plugin-proposal-optional-chaining"
+    "@babel/plugin-proposal-optional-chaining",
+    "babel-plugin-jsx-remove-data-test-id"
   ]
 }
