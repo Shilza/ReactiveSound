@@ -51,7 +51,7 @@ tracksApi.getTracks.mockResolvedValue(resolvedValue);
 describe('<Search/> page', () => {
 
     const query = 'Artist';
-    const {queryByTestId, debug} = render(
+    const {queryByTestId} = render(
         <Provider store={store}>
             <Router>
                 <Search match={{params: {query}}}/>
@@ -61,7 +61,6 @@ describe('<Search/> page', () => {
 
     it('should have three child', () => {
         const trackContainer = queryByTestId('tracksContainer');
-        debug(trackContainer);
         expect(trackContainer.childNodes.length).toBe(3);
     });
 });
