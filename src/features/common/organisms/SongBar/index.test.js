@@ -57,12 +57,11 @@ describe('<SongBar/> common organism', () => {
     timeLine.style.width = width;
 
     it('should seek by 5 second by ArrowRight key down', () => {
-
         const currentTimeLinePosition = queryByTestId('currentTimeLinePosition');
         const percents = `${SEEK / duration * 100}%`;
 
         fireEvent.keyDown(container, {
-            key: 'ArrowRight'
+            keyCode: 39
         });
         store.dispatch(setCurrentTime(store.getState().player.player.currentTime()));
 
@@ -70,27 +69,25 @@ describe('<SongBar/> common organism', () => {
     });
 
     it('should seek by 5 second by ArrowLeft key down', () => {
-
         const currentTimeLinePosition = queryByTestId('currentTimeLinePosition');
         const currentTime = duration / 100 * 90;
         store.dispatch(setCurrentTime(currentTime));
         const percents = `${(currentTime - SEEK) / duration * 100}%`;
 
         fireEvent.keyDown(container, {
-            key: 'ArrowLeft'
+            keyCode: 37
         });
         store.dispatch(setCurrentTime(store.getState().player.player.currentTime()));
 
         expect(currentTimeLinePosition).toHaveStyle(`width: ${percents}`);
     });
 
-    it('should seek by 0 second by 0 key down', () => {
-
+    it('should seek by 0 second by 0 key down (48)', () => {
         const currentTimeLinePosition = queryByTestId('currentTimeLinePosition');
         currentTimeLinePosition.style.width = '90%';
 
         fireEvent.keyDown(container, {
-            key: '0'
+            keyCode: 48
         });
         store.dispatch(setCurrentTime(store.getState().player.player.currentTime()));
 
