@@ -42,7 +42,6 @@ describe('<PlayButton/> common atom', () => {
             .then(() => {
                 expect(spy).toHaveBeenCalledTimes(1);
                 expect(button).toHaveAttribute('aria-label', 'Pause');
-            })
-            .catch(err => console.log(`Error: ${err}`));
+            });
     });
 });
