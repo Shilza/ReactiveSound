@@ -1,14 +1,17 @@
 @import '../../../../styles/utils.module';
 
 .container {
-  input[type=range] {
-    -webkit-appearance: none;
 
+  input[type=range] {
+    background: transparent;
+    -webkit-appearance: none;
     margin: 3.5px 0;
   }
+
   input[type=range]:focus {
     outline: none;
   }
+
   input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 3px;
@@ -18,6 +21,7 @@
     border-radius: 0;
     border: 0 solid rgba(0, 1, 1, 0);
   }
+
   input[type=range]::-webkit-slider-thumb {
     box-shadow: 0 0 0 rgba(77, 78, 79, 0), 0 0 0 rgba(90, 91, 92, 0);
     border: 0 solid color('accent');
@@ -29,6 +33,7 @@
     -webkit-appearance: none;
     margin-top: -3.5px;
   }
+
   input[type=range]::-moz-range-thumb {
     box-shadow: 0 0 0 rgba(77, 78, 79, 0), 0 0 0 rgba(90, 91, 92, 0);
     border: 0 solid color('accent');
@@ -47,9 +52,11 @@
     cursor: pointer;
     height: 3px;
   }
+
   input[type=range]:focus::-webkit-slider-runnable-track {
     background: #505152;
   }
+
   input[type=range]::-moz-range-track {
     width: 100%;
     height: 3px;
@@ -59,6 +66,7 @@
     border-radius: 0;
     border: 0 solid rgba(0, 1, 1, 0);
   }
+
   input[type=range]::-ms-track {
     width: 100%;
     height: 3px;
@@ -67,23 +75,26 @@
     border-color: transparent;
     color: transparent;
   }
+
   input[type=range]::-ms-fill-lower {
     background: #4a4b4c;
     border: 0 solid rgba(0, 1, 1, 0);
     border-radius: 0;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
   }
+
   input[type=range]::-ms-fill-upper {
     background: color('accent');
     border: 0 solid rgba(0, 1, 1, 0);
     border-radius: 0;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
   }
+
   input[type=range]:focus::-ms-fill-lower {
     background: color('accent');
   }
+
   input[type=range]:focus::-ms-fill-upper {
     background: #505152;
   }
-
 }
